@@ -1,0 +1,24 @@
+
+The main purpose of this repository is to store proof-of-concept that I know how to create a debian 
+package from source. From now on, if there's a way I can hack together something to make my first 
+install of Debian/Ubuntu a cleaner one, I can use this package to setup all depenencies I have on 
+the environment. :3
+
+Mind-map/brainstorming:
+Once this is all said and done, I'm going to have a series of installs within this one. The package 
+dependency (unfortunately) is going to have to be global, so any package included in the list may 
+not be consumed. Yes, this will cause a bit of bloat, but this should really only be installed on 
+systems I totally control to start with. Later, I will worry about building custom packages for 
+other systems I happen to have root with. They may only include changes to the home directory dot 
+files.
+
+Initially, I'm going to need my custom setup of XAMPP and I need to figure out how to get apt-get 
+to ignore the use of the packages that they depend on. I want to build the dependencies only using 
+the package manager and execute the pacakages themselves by custom source control I have in 
+/home/XAMPP.
+
+I'll also need custom .bashrc, .profile, and .alias files. They are essential to my environment 
+being correct for the frequent commands I execute to make my life easier. Yes, there's some 
+cleaning up to do in my current environment, but that's the point of setting this up :)
+The potential for environment checks could be in place to ensure that only 
+the appropriate variables are set and sent on each new shell.
