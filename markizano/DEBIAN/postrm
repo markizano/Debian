@@ -1,0 +1,9 @@
+#!/bin/bash
+set -e
+
+pkg=bitdefender
+variant=
+
+echo -e "\033[31mPRERM\033[00m";
+
+exit 0

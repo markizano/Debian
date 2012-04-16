@@ -1,0 +1,11 @@
+## Here is a short example for HTML.
+##
+syntax "html" "((ht|m?x|w|xs)m?l?t?|tpl)$"
+header "^<(\?xml|!DOCTYPE|html)"
+color blue start="<" end=">"
+color yellow "\=('|\")[^\1]*\1"
+color green "([A-Za-z0-9_\-]+)\="
+color magenta "\&[^;]+;"
+color yellow start="<!DOCTYPE" end="[/]?>"
+color cyan start="<!--" end="-->"
+color cyan start="<!\[P?CDATA\[" end="\]\]>"

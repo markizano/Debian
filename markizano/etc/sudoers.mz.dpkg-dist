@@ -1,0 +1,49 @@
+# /etc/sudoers
+#
+# This file MUST be edited with the 'visudo' command as root.
+#
+# See the man page for details on how to write a sudoers file.
+# Host alias specification
+
+# User alias specification
+
+# Cmnd alias specification
+
+# Defaults
+
+Defaults	!lecture,tty_tickets,!fqdn
+#Defaults	requiretty
+Defaults	env_reset
+Defaults	env_editor
+Defaults	insults
+
+root	ALL=(ALL) ALL
+Cmnd_Alias NETWORKING = /sbin/route, /sbin/ip, /sbin/ifconfig, /sbin/ifup, /sbin/ifdown, /sbin/dhclient, /sbin/iptables, /sbin/iptables-save, /sbin/iptables-restore, /bin/ping, /usr/bin/net, /usr/bin/fping, /bin/netstat
+Cmnd_Alias PROCESS = /bin/ps, /bin/kill, /bin/killall, /usr/bin/pkill, /usr/bin/pgrep
+Cmnd_Alias BOOT = /sbin/reboot, /sbin/poweroff, /sbin/shutdown
+Cmnd_Alias SUBVERSION = /usr/local/bin/svn, /usr/local/bin/svnadmin, /usr/local/bin/svnlook, /usr/local/bin/svnserve, /usr/local/bin/svnsync, /usr/local/bin/svnversion
+Cmnd_Alias EDITOR = /bin/ed, /usr/bin/nano, /usr/bin/vi, /usr/bin/vim, /usr/bin/pico, /usr/bin/emacs, /usr/sbin/visudo
+Cmnd_Alias APTITUDE = /usr/bin/apt-get, /usr/bin/apt-cache, /usr/bin/apt-key, /usr/bin/aptitude
+Cmnd_Alias OWNERSHIP = /bin/chown, /bin/chmod, /bin/chgrp
+Cmnd_Alias SERVICES_ALL = /etc/init.d/apache2, /etc/init.d/mysql, /etc/init.d/ssh, /etc/init.d/samba
+Cmnd_Alias SHELL = /bin/bash, /bin/sh, /bin/rsh, /usr/bin/php
+Cmnd_Alias FILESYSTEM = /bin/rm, /bin/cp, /bin/mv
+Cmnd_Alias COMPILE = /usr/bin/make
+Cmnd_Alias LS = /bin/ls
+Cmnd_Alias SU = /bin/su /usr/bin/sudo /usr/sbin/visudo
+
+%networking	ALL=NETWORKING, !SU
+%process	ALL=PROCESS, !SU
+%boot		ALL=BOOT, !SU
+%svn		ALL=SUBVERSION, !SU
+%edit		ALL=EDITOR, !SU
+%apt		ALL=APTITUDE, !SU
+%owner		ALL=OWNERSHIP, !SU
+%services	ALL=SERVICCES_ALL, !SU
+%shell		ALL=SHELL
+%filesystem	ALL=FILESYSTEM, !SU
+%compile	ALL=COMPILE, !SU
+%list		ALL=LS, !SU
+%admin		ALL=(ALL) ALL
+%sudo		ALL=NOPASSWD: ALL
+

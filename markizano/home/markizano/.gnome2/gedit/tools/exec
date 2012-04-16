@@ -1,0 +1,14 @@
+#!/bin/sh
+# [Gedit Tool]
+# Name=exec
+# Shortcut=<Control>e
+# Applicability=all
+# Output=output-panel
+# Input=nothing
+# Save-files=document
+
+
+[ -x "$GEDIT_CURRENT_DOCUMENT_PATH" ] \
+	|| chmod 755 "$GEDIT_CURRENT_DOCUMENT_PATH";
+
+"$GEDIT_CURRENT_DOCUMENT_PATH";

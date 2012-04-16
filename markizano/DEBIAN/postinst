@@ -1,0 +1,32 @@
+#!/bin/bash
+
+set -e
+
+PKG=bitdefender
+PREFIX="/usr/local"
+BINDIR="${PREFIX}/bin"
+SBINDIR="${PREFIX}/sbin"
+DATADIR="${PREFIX}/share"
+MANDIR="${DATADIR}/man"
+LIBDIR="${PREFIX}/lib"
+SYSCONFDIR="${PREFIX}/etc"
+SRCDIR="${PREFIX}/src"
+
+# Check to make sure my user is in /etc/passwd.
+#@TODO: Allow a global/env var override the value of this.
+
+# Create new SSH keys for the user being installed if it doesn't already exist.
+
+# I want to experiment with installing more packages depending on the system from here.
+
+for file in /etc/sudoers /etc/hosts; do
+	if [ -w $file ]; then
+		echo -n "An existing version of $file exists. Would you like to overwrite it? (Only 'yes' will count as such): ";
+		read ow;
+		[ "$ow" == "yes" ] && mv $file.mz.dpkg-dist $file;
+	fi
+done
+
+
+exit 0
+

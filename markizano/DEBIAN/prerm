@@ -1,0 +1,9 @@
+#!/bin/bash
+set -e
+
+echo -e "\033[31mPOSTRM\033[00m";
+
+# Automatically added by dh_installmenu
+if [ -x "`which update-menus 2>/dev/null`" ]; then update-menus ; fi
+# End automatically added section
+

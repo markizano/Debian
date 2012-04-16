@@ -1,0 +1,11 @@
+#!/bin/bash
+# [Gedit Tool]
+# Name=Lint Check
+# Shortcut=<Control>l
+# Applicability=all
+# Output=output-panel
+# Input=document
+# Save-files=document
+
+
+php -l $GEDIT_CURRENT_DOCUMENT_PATH;

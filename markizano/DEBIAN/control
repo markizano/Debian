@@ -1,0 +1,17 @@
+Package: markizano
+Source: markizano
+Version: 1.0
+Architecture: all
+Maintainer: Mark Harris <markizano@markizano.net>
+Installed-Size: 0
+Depends: 
+Suggests: 
+Provides: markizano
+Section: extra
+Priority: extra
+Homepage: http://www.markizano.net/
+Description: This is a source control package to ensure I have all dependecies
+ installed, my environment is setup correctly and other miscelaneous, but
+ tedious, and repetitive tasks I must accomplish when I first touch a debian/
+ Ubuntu-based system upon which I have root access (usually when I own the
+ machine).

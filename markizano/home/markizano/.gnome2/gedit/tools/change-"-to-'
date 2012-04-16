@@ -1,0 +1,19 @@
+#!/bin/php
+<?php
+# [Gedit Tool]
+# Name=Change " to '
+# Shortcut=<Shift><Control>quotedbl
+# Applicability=all
+# Output=replace-selection
+# Input=selection
+# Save-files=nothing
+
+ob_start();
+foreach($_ENV as $name=>$val){
+	if(striPos($name, 'GEDIT') !== false)
+		var_dump(array($name => $_ENV[$name]),$_SERVER[$name]);
+}var_dump($_SERVER['argv']);
+$output = ob_get_clean();
+print preg_replace('/\]\=\>\n[\s]*/i', ']=>', $output);
+#echo 'Selected Text:'.$_ENV['GEDIT_SELECTED_TEXT'];
+

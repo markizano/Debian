@@ -1,0 +1,26 @@
+## Here is an example for Bourne shell scripts.
+##
+syntax "VisualBasic" "\.?vb$"
+
+
+# Encapsulation
+color blue "(Me|Module|Event|Class|Function|Sub|Property|With|Const)"
+# Declarations
+color blue "(WithEvents|Dim|Declare|As|Event|Shared)"
+# Keywords
+color blue "(For(each)?|If|Then|Else(If)?|End\s?(If|For(each)?|While|With)?|While|Return|Get|Set|Let|Do|To|This)"
+# Access levels
+color blue "(Public|Static|Protected|Private|Namespace|Friend|By(Val|Ref))"
+# Types
+color blue "(New|Object|String|Integer|Boolean|Real|Double|Single|Short|Long)"
+# Operators
+color blue "(And|Xor|Or|Not)"
+
+# Numbers
+color yellow "\-?[0-9\.]+"
+
+# Dynamic Strings
+color red "("[^"]*")"
+
+# Comments
+color green "'.*$"

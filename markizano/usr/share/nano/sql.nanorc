@@ -1,0 +1,12 @@
+## Here is a short example for HTML
+syntax "SQL" "sql$"
+
+color brightblue "(create|select|delete|drop|from|where|count|sum|update|insert|replace|order|by|limit)"
+color brightyellow "[0-9]+"
+
+color yellow "\"[^\"]*\""
+color yellow "'[^']*'"
+color yellow "`[^`]*`"
+
+color brightblack "(//|#|--).*$"
+color black start="/\*" end="\*/"

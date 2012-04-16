@@ -1,0 +1,11 @@
+#!/bin/sh
+# [Gedit Tool]
+# Name=PHP Lint
+# Shortcut=<Control>l
+# Applicability=all
+# Output=output-panel
+# Input=nothing
+# Save-files=document
+
+
+php -l $GEDIT_CURRENT_DOCUMENT_PATH;

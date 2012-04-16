@@ -1,0 +1,11 @@
+#!/bin/bash
+# [Gedit Tool]
+# Name=saveState
+# Shortcut=<Shift><Control><Alt>s
+# Applicability=all
+# Output=output-panel
+# Input=nothing
+# Save-files=nothing
+
+
+echo $GEDIT_DOCUMENTS_PATH | sed -r 's/ /\n/g';
