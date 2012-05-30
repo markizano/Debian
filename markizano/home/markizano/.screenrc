@@ -1,0 +1,22 @@
+deflogin on
+vbell on
+vbell_msg "   Wuff  ----  Wuff!!  "
+defscrollback 1024
+bind ^k
+bind ^\
+bind \\ quit
+bind K kill
+bind I login on
+bind O login off
+bind } history
+termcapinfo vt100 dl=5\E[M
+termcapinfo xterm*|rxvt*|kterm*|Eterm* hs:ts=\E]0;:fs=\007:ds=\E]0;\007
+hardstatus lastline "%-Lw%{= BW}%50>%n%f* %t%{-}%+Lw%<"
+termcapinfo xterm*|linux*|rxvt*|Eterm* OP
+termcapinfo xterm 'is=\E[r\E[m\E[2J\E[H\E[?7h\E[?1;4;6l'
+termcapinfo xterm|xterms|xs|rxvt ti@:te@
+defnonblock 5
+multiuser on
+aclchg root +rwxd "#"
+altscreen on
+

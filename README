@@ -4,7 +4,17 @@ package from source. From now on, if there's a way I can hack together something
 install of Debian/Ubuntu a cleaner one, I can use this package to setup all depenencies I have on 
 the environment. :3
 
+To make this package work, just run `package' and it'll take care of the rest. This will produce a
+.deb file that can then be used with dpkg to install and use on the system. Because this has root
+access to the system, I can do whatever I want with the initial steps in the system as far as
+packages are concerned.
+
+More information on Debian control policies can be found here:
+http://www.debian.org/doc/debian-policy/ch-controlfields.html
+
+
 Mind-map/brainstorming:
+
 Once this is all said and done, I'm going to have a series of installs within this one. The package 
 dependency (unfortunately) is going to have to be global, so any package included in the list may 
 not be consumed. Yes, this will cause a bit of bloat, but this should really only be installed on 
