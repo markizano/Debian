@@ -12,7 +12,6 @@ Provides: markizano
 Section: utils
 Priority: standard
 Homepage: http://www.markizano.net/
-Urgency: medium
 Description: This is a source control package to ensure I have all dependecies
  installed, my environment is setup correctly and other miscelaneous, but
  tedious, and repetitive tasks I must accomplish when I first touch a debian/

@@ -2,9 +2,7 @@
 
 test ${BASH_VERSION:0:1} -eq 4 || { echo "I require bash 4.0.0+! ._."; exit 1; }
 
-cd markizano/;
 echo "[*] Generating MD5 checksums.";
-find ./ -regextype posix-egrep ! -regex '.*/?DEBIAN/.*' -type f -printf "%P\n" | sort | xargs md5sum > DEBIAN/md5sums
-cd ..;
+find markizano/ -type f ! -path '*/DEBIAN/*' -printf '%P\0' | sort -z | (cd markizano && exec xargs -0 md5sum) > markizano/DEBIAN/md5sums
 
 dpkg-deb --build markizano;

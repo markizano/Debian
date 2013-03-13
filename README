@@ -1,11 +1,12 @@
 
 The main purpose of this repository is to store proof-of-concept that I know how to create a debian 
-package from source. From now on, if there's a way I can hack together something to make my first 
+package. From now on, if there's a way I can hack together something to make my first 
 install of Debian/Ubuntu a cleaner one, I can use this package to setup all depenencies I have on 
 the environment. :3
 
-To make this package work, just run `package' and it'll take care of the rest. This will produce a
-.deb file that can then be used with dpkg to install and use on the system. Because this has root
+To make this package work, just run `package' and it will take care of the rest. At some point,
+it will ask questions about the target system. This will produce a {markizano.deb} file that can
+then be used with dpkg to install and integrate with the system. Because this has root
 access to the system, I can do whatever I want with the initial steps in the system as far as
 packages are concerned.
 
@@ -15,20 +16,30 @@ http://www.debian.org/doc/debian-policy/ch-controlfields.html
 
 Mind-map/brainstorming:
 
-Once this is all said and done, I'm going to have a series of installs within this one. The package 
-dependency (unfortunately) is going to have to be global, so any package included in the list may 
-not be consumed. Yes, this will cause a bit of bloat, but this should really only be installed on 
-systems I totally control to start with. Later, I will worry about building custom packages for 
-other systems I happen to have root with. They may only include changes to the home directory dot 
-files.
+/home/markizano
+I store a lot of configuration here that really customizes my setup, experience and environment.
+Dot files are stored here to maintain configuration for some modules, such as text editors,
+window manager configuration, shell environment changes, etc.
 
-Initially, I'm going to need my custom setup of XAMPP and I need to figure out how to get apt-get 
-to ignore the use of the packages that they depend on. I want to build the dependencies only using 
-the package manager and execute the pacakages themselves by custom source control I have in 
-/home/XAMPP.
+I'd like to find a way to have this package "provide" the other packages that often cause dependency
+issues but are provided with source code updates instead. For example, if I wanted a custom
+apache/php/mysql setup, I can install these components, but in order to install some of the extensions,
+it's much easier to just install the package for them instead of finding the source. If this package
+provides the base packages (apache2, php5, mysql-client, mysql-server), then installing the extensions
+would be a lot more streamy.
 
-I'll also need custom .bashrc, .profile, and .alias files. They are essential to my environment 
-being correct for the frequent commands I execute to make my life easier. Yes, there's some 
-cleaning up to do in my current environment, but that's the point of setting this up :)
-The potential for environment checks could be in place to ensure that only 
-the appropriate variables are set and sent on each new shell.
+At some point the packaging utility (./package) is going to have to be updated to ask questions for the
+target system that will receive the package.
+Examples of questions:
+	Are you root of this system?
+		- If yes, include the /root directory configurations in the installation.
+
+	Will this be a GTK system?
+		- If yes, include the .gnome, .gtk, and .config home dot config files and directories.
+
+	Is this a bare server build?
+		- If yes, install these server packages: apache2, mysql, memcached;
+	Will this service support:
+		X? - If yes, install X
+		Y? - If yes, install Y
+		Z? - If yes, install Z
