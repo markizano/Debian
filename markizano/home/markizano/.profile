@@ -10,17 +10,6 @@ export ASTHRALIOS_NET="$(grep -vE '^#' /etc/hosts | grep asthralios.net | head -
 export Code=${Markizano_NET}Code/
 export Story=${Markizano_NET}Story/
 
-# MSCD
-export MSCD=$Kebrauph\Education/MSCD/
-export HIS1220=$MSCD\Classes/HIS1220/
-export PSY1001=$MSCD\Classes/PSY1001/
-export ECO1060=$MSCD\Classes/ECO1060/
-export CS1050=$MSCD\Classes/CS1050/
-export CS2050=$MSCD\Classes/CS2050/
-export CIS1010=$MSCD\Classes/CIS1010/
-export ENG1010=$MSCD\Classes/ENG1010/
-export MTH1310=$MSCD\Classes/MTH1310/
-
 # Phoenix.edu
 export Phoenix=$Kebrauph\Education/Phoenix.edu/Classes/
 
@@ -123,3 +112,4 @@ if [ -z $BASHRC ]; then
 fi
 ns='/home/Kebrauph/Employment/w3evolutions/projects/ns'
 export GIR=/home/apache/git/CptnKickass/GIR
+

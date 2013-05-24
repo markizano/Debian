@@ -7,11 +7,10 @@ Installed-Size: 0
 Depends: xclip, rsync, hexedit, nano (>= 2.2.4), nmap (>= 5.00), realpath,
   pidgin (>= 2.6), pidgin-data, pidgin-extprefs, pidgin-libnotify, pidgin-plugin-pack, pidgin-privacy-please,
   bind9, bind9-host, bind9utils, vbindiff, ia32-libs-gtk
-Suggests: 
 Provides: markizano
 Section: utils
 Priority: standard
-Homepage: http://www.markizano.net/
+Homepage: http://markizano.net/
 Description: This is a source control package to ensure I have all dependecies
  installed, my environment is setup correctly and other miscelaneous, but
  tedious, and repetitive tasks I must accomplish when I first touch a debian/

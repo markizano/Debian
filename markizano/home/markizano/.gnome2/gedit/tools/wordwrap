@@ -9,4 +9,4 @@
 
 
 export WORDWRAP=85
-/usr/bin/fold -sw$WORDWRAP
+/usr/bin/fold -sw$WORDWRAP | sed -r 's/\s*$//'

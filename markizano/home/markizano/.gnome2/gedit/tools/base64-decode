@@ -1,0 +1,10 @@
+#!/bin/bash
+# [Gedit Tool]
+# Name=Base64 Decode
+# Shortcut=<Control>b
+# Applicability=all
+# Output=replace-selection
+# Input=selection
+# Save-files=nothing
+
+base64 -d

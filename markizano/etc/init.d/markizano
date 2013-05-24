@@ -1,0 +1,26 @@
+#!/bin/sh
+#!/bin/bash
+
+set -e
+
+# Get lsb functions
+. /lib/lsb/init-functions
+
+case "$1" in
+    start)
+        # First, I want to unlock my home dir so apps can load with the proper equipment.
+        # Next, we establish the SSH agent and environment so the rest of the system can enjoy the bounty of SSH.
+        encfs --public /home/.markizano /home/markizano;
+        ssh-agent | grep -v echo > /home/markizano/.ssh/agent
+        ;;
+    stop)
+        # stop...
+        source /home/markizano/.ssh/agent
+        kill -15 $SSH_AGENT_PID && rm /homem/markizano/.ssh/agent
+        umount /home/markizano
+        ;;
+    status)
+        source /home/markizano/.ssh/agent
+        echo -e "Agent: pid=$SSH_AGENT_PID, socket=$SSH_AUTH_SOCK";
+esac;
+

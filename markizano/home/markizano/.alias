@@ -61,6 +61,8 @@ alias clipo='xclip -selection c -o'
 alias git=git-achievements
 alias reset-clock='/usr/bin/rdate -s nist1-ny.ustiming.org | /sbin/hwclock --systohc'
 
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+
 alias df-home='df -h | head -n1; df -h | grep home | head -n1';
 
 alias sshfs-mxharris-sites='sudo sshfs -o allow_other,follow_symlinks -p36808 markizano@mxharris-debx:/quarantine/sites /quarantine/sites'
@@ -77,3 +79,4 @@ alias sshfs-umount='for dir in /usr/local/lib/perl/5.10.0 /opt/stage /opt/www /o
 
 echo -e "This shell is aliased.";
 alias sshfs-source='sudo sshfs -o allow_other,follow_symlinks,reconnect util01:/opt/source /opt/source';
+

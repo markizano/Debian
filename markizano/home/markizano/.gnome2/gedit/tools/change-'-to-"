@@ -1,11 +1,11 @@
-#!/bin/bash
+#!/bin/sh
 # [Gedit Tool]
-# Name=Change " to '
-# Shortcut=<Shift><Control>quotedbl
+# Name=Change ' to "
+# Shortcut=<Control>apostrophe
 # Applicability=all
 # Output=replace-selection
 # Input=selection
 # Save-files=document
 
 
-sed -r s/\"/\'/g
+sed -r s/\'/\"/g

@@ -2,20 +2,21 @@
 
 [ -z "$PS1" ] && return
 
-shopt -s autocd checkjobs dirspell
+shopt -s autocd checkjobs dirspell extglob
 
+export DATEFORMAT='%F/%R:%S';
 export HISTCONTROL=ignoreboth
-[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
-if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
-    debian_chroot=$(cat /etc/debian_chroot)
-fi
-case "$TERM" in
-    xterm-color) color_prompt=yes;;
-esac
+export HISTFILE=$HOME/.history
+export HISTFILESIZE=40960
+export HISTSIZE=4096
+export HISTTIMEFORMAT="$DATEFORMAT"
 
-#PS1='\[\033[31m\]$$\[\033[0m\]|\[\033[33m\]$(date '+%F/%R:%S')\n\[\033[34m\]${USER}\[\033[01;33m\]@\[\033[00;32m\]${HOSTNAME}\[\033[01;30m\]:\[\033[00;35m\]\w\[\033[01;31m\]\$\[\033[00m\]';
-PS1='\[\033[31m\]$$\[\033[0m\]|\[\033[33m\]$(date +%F/%R:%S)\[\033[01;35m\]$(tty)\[\033[0;0m\]\n\[\033[34m\]\u\[\033[01;33m\]@\[\033[00;32m\]\h\[\033[01;30m\]:\[\033[00;35m\]\w\[\033[01;31m\]\$\[\033[00m\]'
-alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+
+export TTY=`tty`;
+export PS1='\[\033[31m\]$$\[\033[0m\]|\[\033[33m\]$(date +"$DATEFORMAT")\[\033[01;35m\]$TTY'\
+'\[\033[0;0m\]$(loadavg)\n\[\033[34m\]\u\[\033[01;33m\]@\[\033[00;32m\]\h\[\033[01;30m\]:'\
+'\[\033[00;35m\]\w\[\033[01;31m\]\$\[\033[00m\]'
 
 [ -x /usr/bin/dircolors ] && eval "`dircolors -b`"
 [ -f /etc/bash_completion ] && . /etc/bash_completion
@@ -24,7 +25,8 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 
 # Force history to be written to disk after each command.
 export PROMPT_COMMAND="history -a";
-export PATH=${PATH}:/usr/games:.:/home/Media/Downloads/Droid/android-sdk-linux_x86/tools:/home/Media/Downloads/Droid/android-sdk-linux_x86/platform-tools
+export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:.
+
 [ -d ~/bin ] && PATH=$PATH:~/bin
 [ -d /opt/metasploit/sbin ] && PATH=$PATH:/opt/metasploit/sbin
 [ -d /opt/metasploit/bin ] && PATH=$PATH:/opt/metasploit/bin
@@ -39,7 +41,6 @@ if [ -n "$PENTEST" ]; then
 	fi
 fi
 
-export path=$(echo $PATH|sed 's/:/ /g');
 export BASHRC=1
 
 [ -f $HOME/.profile ] && . ~/.profile
