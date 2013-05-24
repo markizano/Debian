@@ -1,0 +1,7 @@
+#!/bin/bash
+
+for i in c p s; do
+	echo -e "\033[32m$i\033[00m";
+	xclip -o -selection $i | grep --color=auto "$@";
+	echo;
+done;

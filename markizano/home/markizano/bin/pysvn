@@ -1,0 +1,10 @@
+#!/usr/bin/env python
+
+#import pysvn
+import pprint
+import os
+
+if __name__ == "__main__":
+#    svn = PysvnLog("/home/Osash/client")
+    print(os.environ)
+

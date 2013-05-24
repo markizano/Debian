@@ -1,0 +1,167 @@
+#!/usr/bin/env python
+
+import urllib2
+import xml.dom.minidom
+import sys
+from optparse import OptionParser
+import pprint
+import convert
+
+
+def get_weather(location, partner_id, weather_key):
+
+	result = ""
+	meta = {
+		"temp"		: None,
+		"dist"		: None,
+		"speed"		: None,
+		"precip"	: None,
+		"radius"	: None
+	}
+	loc = {
+		"location"	: None,
+		"time"		: None,
+		"lat"		: None,
+		"lon"		: None,
+		"sunup"		: None,
+		"sundown"	: None,
+		"zone"		: None,
+	}
+	weather = {
+		"temp"		: {
+			'C'		: None,
+			'F'		: None
+		},
+		"feels"		: None,
+		"cond"		: None,
+		"bar"		: {
+			"in"	: None,
+			"mm"	: None,
+			"dir"	: None
+		},
+		"wind"		: {
+			"speed"	: None,
+			"dir"	: None
+		},
+		"humidity"	: None,
+		"vis"		: {
+			"mi"	: None,
+			"km"	: None
+		},
+		"moon"		: None,
+	}
+	l = urllib2.urlopen("http://xoap.weather.com/search/search", "where=%s" % location).read()
+	dom = xml.dom.minidom.parseString(l)
+	search = dom.getElementsByTagName("search")[0]
+
+	if not len(search.childNodes):
+		return "Could not find that location."
+	temperature = convert.temperature()
+	length = convert.length()
+	where = search.getElementsByTagName("loc")[0].getAttribute("id")
+
+	query_str = "cc=*&link=xoap&prod=xoap&par=%s&key=%s" % (partner_id, weather_key)
+	l = urllib2.urlopen("http://xoap.weather.com/weather/local/%s" % where, query_str).read()
+	dom = xml.dom.minidom.parseString(l)
+
+	if (not len(dom.getElementsByTagName("head"))):
+	    return "There was an error fetching the weather."
+
+	_head = dom.getElementsByTagName("head")[0]
+	_loc = dom.getElementsByTagName("loc")[0]
+	_cc = dom.getElementsByTagName("cc")[0]
+
+	meta['temp']					= _head.getElementsByTagName("ut")[0].childNodes[0].nodeValue
+	meta['dist']					= _head.getElementsByTagName("ud")[0].childNodes[0].nodeValue
+	meta['speed']					= _head.getElementsByTagName("us")[0].childNodes[0].nodeValue
+	meta['precip']					= _head.getElementsByTagName("up")[0].childNodes[0].nodeValue
+	meta['radius']					= _head.getElementsByTagName("ur")[0].childNodes[0].nodeValue
+
+	loc['location']					= _loc.getElementsByTagName("dnam")[0].childNodes[0].nodeValue
+	loc['time']						= _loc.getElementsByTagName("tm")[0].childNodes[0].nodeValue
+	loc['lat']						= float(_loc.getElementsByTagName("lat")[0].childNodes[0].nodeValue)
+	loc['lon']						= float(_loc.getElementsByTagName("lon")[0].childNodes[0].nodeValue)
+	loc['sunup']					= _loc.getElementsByTagName("sunr")[0].childNodes[0].nodeValue
+	loc['sundown']					= _loc.getElementsByTagName("suns")[0].childNodes[0].nodeValue
+	loc['zone']						= _loc.getElementsByTagName("zone")[0].childNodes[0].nodeValue
+
+	weather['temp'][meta['temp']]	= round(float(_cc.getElementsByTagName("tmp")[0].childNodes[0].nodeValue), 4)
+	weather['feels']				= float(_cc.getElementsByTagName("flik")[0].childNodes[0].nodeValue)
+	weather['cond']					= _cc.getElementsByTagName("t")[0].childNodes[0].nodeValue
+	weather['bar'][meta['radius']]	= float(_cc.getElementsByTagName("bar")[0].getElementsByTagName("r")[0].childNodes[0].nodeValue)
+	weather['bar']['dir']			= _cc.getElementsByTagName("bar")[0].getElementsByTagName("d")[0].childNodes[0].nodeValue
+	weather['wind']['speed']		= float(_cc.getElementsByTagName("wind")[0].getElementsByTagName("s")[0].childNodes[0].nodeValue)
+	weather['wind']['dir']			= _cc.getElementsByTagName("wind")[0].getElementsByTagName("t")[0].childNodes[0].nodeValue
+	weather['humidity']				= float(_cc.getElementsByTagName("hmid")[0].childNodes[0].nodeValue)
+	weather['vis'][meta['dist']]	= float(_cc.getElementsByTagName("vis")[0].childNodes[0].nodeValue)
+	weather['moon']					= _cc.getElementsByTagName("moon")[0].getElementsByTagName("t")[0].childNodes[0].nodeValue
+
+	if meta['temp'] == 'F':
+		weather['temp']['C'] = temperature.f2c(weather['temp']['F'])
+	elif meta['temp'] == 'C':
+		weather['temp']['F'] = temperature.f2c(weather['temp']['C'])
+	else: return "\033[31mERROR\033[00m: No scale info given!"
+
+	if meta['radius'] == 'in':
+		weather['bar']['mm'] = length.in2mmHg(weather['bar']['in'])
+	elif meta['radius'] == 'mm':
+		weather['bar']['mm'] = length.mm2inHg(weather['bar']['mm'])
+	else: return "\033[31mERROR\033[00m: No barometric measurement given!"
+
+	if meta['dist'] == 'mi':
+		weather['vis']['km'] = length.mi2km(weather['vis']['mi'])
+	elif meta['dist'] == 'km':
+		weather['vis']['mi'] = length.km2mi(weather['vis']['km'])
+
+	template = "Weather for %s:\n"
+	template += "\tTemperature: %0.2fF / %0.2fC\n"
+	template += "\tFeels like: %0.2fF / %0.2fC\n"
+	template += "\tConditions: %s\n"
+	template += "\tBarometric Pressure (%s): %0.2finHg / %0.2fmmHg\n"
+	template += "\tHumidity: %0.2f%%\n"
+	template += "\tWind: From %s at %0.2f%s\n"
+	template += "\tVisibility: %0.1fmi / %0.1fkm\n"
+	template += "\tSun: up(%s) down(%s)\n"
+	template += "\tLocation: Lat(%0.2f), Lon(%0.2f)\n"
+	template += "\tTime: %s GMT%s\n"
+	template += "\tMoon: %s"
+	data = (
+		loc['location'],
+		round(weather['temp']['F'], 2), round(weather['temp']['C'], 2),
+		round(weather['feels'], 2), round(temperature.f2c(weather['feels']), 2),
+		weather['cond'],
+		weather['bar']['dir'],
+		round(weather['bar']['in'], 2), round(weather['bar']['mm'], 2),
+		weather['humidity'],
+		weather['wind']['dir'], weather['wind']['speed'], meta['speed'],
+		weather['vis']['mi'], weather['vis']['km'],
+		loc['sunup'], loc['sundown'],
+		loc['lat'], loc['lon'],
+		loc['time'], loc['zone'],
+		weather['moon']
+	)
+	result = template % data
+
+	return result
+
+
+partner_id = "1213490549"
+weather_key = "0f3a50b830847b06"
+
+if __name__ == "__main__":
+	location = ""
+	optionParser = OptionParser()
+	optionParser.add_option(
+		"-l","--location",
+		dest = "location",
+		metavar = "[loc]",
+		help = "The location to fetch."
+	)
+	(opts,args) = optionParser.parse_args()
+	if not opts.location == None:
+		location = opts.location
+	elif len(args) == 1:
+		location = args[0]
+	weather = get_weather(location, partner_id, weather_key)
+	sys.stdout.write(weather + "\n")
+

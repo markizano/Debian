@@ -1,0 +1,4 @@
+#!/bin/bash
+
+#gksudo -u markizano 'exaile -t'
+exaile -t "$@"

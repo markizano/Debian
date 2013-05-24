@@ -1,0 +1,3 @@
+#!/bin/bash
+
+xclip -selection c -o | wordwrap '' | xclip -selection c

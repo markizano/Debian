@@ -1,0 +1,26 @@
+#!/usr/bin/env php
+<?php
+
+$GLOBALS['SELF'] = array_shift($_SERVER['argv']);
+
+function Usage() {
+	die(<<<HELP
+Usage: $GLOBALS[SELF] [image]
+Where [image] is a path to an image to dissect and render the {WIDTH}x{HEIGHT}.\n/
+HELP
+);
+}
+
+if ( !isset($_SERVER['argv'][0]) ) {
+	Usage();
+}
+
+
+$img = array_shift($_SERVER['argv']);
+
+if ( !file_exists($img) || !is_file($img) || !is_readable($img) ) {
+	fWrite(STDERR, "Cannot stat `$img' no such file or image.\n");
+	exit(1);
+}
+
+# TODO

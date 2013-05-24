@@ -1,0 +1,5 @@
+#!/bin/bash
+
+export SSH_AUTH_SOCK="$(sudo find /tmp -maxdepth 2 -type d -name 'ssh-??????????' -uid 10003 -exec find {} -type s \; | head -n1)"
+export SSH_AUTH_PID="$(echo $SSH_AUTH_SOCK | sed -r 's/.*\.([0-9]+)$/\1/')"
+

@@ -1,0 +1,15 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+use Carp;
+use Data::Dumper;
+
+use URL::Encode 'url_decode';
+
+my ( $input );
+
+$/ = undef;
+$input = shift @ARGV || <STDIN>;
+
+print url_decode $input;

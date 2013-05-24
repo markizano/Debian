@@ -1,0 +1,4 @@
+#!/bin/bash
+
+sudo sshfs -o follow_symlinks,allow_other zetherus:/home/media /home/media/zetherus
+#sshfs -p 90 -o follow_symlinks,allow_other markizano@asthralios.markizano.net:/ /home/Zetherus

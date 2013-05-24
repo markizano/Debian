@@ -1,0 +1,7 @@
+#!/bin/php
+<?php
+
+if(isset($_SERVER['argv'][1]) && !empty($_SERVER['argv'][1]))
+	echo htmlEntities(`xclip -o -selection {$_SERVER['argv'][1]}`, ENT_QUOTES, 'utf-8', false), chr(10);
+else
+	echo htmlEntities(`xclip -o -selection clip`, ENT_QUOTES, 'utf-8', false), chr(10);

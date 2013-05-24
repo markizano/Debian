@@ -1,0 +1,8 @@
+#!/bin/bash
+
+if [ "$1" == "" ]; then
+	vol=2;
+else
+	vol=$1;
+fi
+ossmix vmix0-outvol +$vol

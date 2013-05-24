@@ -1,0 +1,5 @@
+#!/bin/bash
+
+findFF=`ps -A|grep firefox|grep -o "[0-9]\{4,6\}"`;
+echo -e "Killed FireFox: $findFF";
+sudo kill -9 $findFF;

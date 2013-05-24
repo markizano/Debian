@@ -1,0 +1,49 @@
+#!/bin/bash
+
+gnome-keybinding-properties &
+# Give it time to render
+sleep 2s
+# Move the cursor into position
+xte 'key Down' 'usleep 300' 'key Down' 'usleep 300' 'key Down'
+sleep 0.1s
+# Set the shortcuts
+
+# Volume Mute
+xte 'str  ' 'usleep 1000' 'keydown Super_L' 'key Menu' 'keyup Super_L' 'usleep 300' 'key Down'
+sleep 0.1s;
+
+# Volume Down
+xte 'str  ' 'usleep 1000' 'keydown Super_L' 'key Down' 'keyup Super_L' 'usleep 300' 'key Down'
+sleep 0.1s;
+
+# Volume Up
+xte 'str  ' 'usleep 1000' 'keydown Super_L' 'key Up' 'keyup Super_L' 'usleep 300' 'key Down'
+sleep 0.1s;
+
+# Skip Launch media player
+xte 'key Down'
+sleep 0.1s;
+
+# Play
+xte 'str  ' 'usleep 1000' 'keydown Super_L' 'str  ' 'keyup Super_L' 'usleep 300' 'key Down'
+sleep 0.1s;
+
+# Pause
+xte 'str  ' 'usleep 1000' 'keydown Super_L' 'str  ' 'keyup Super_L' 'usleep 300' 'key Down'
+sleep 0.1s;
+
+# Stop
+xte 'str  ' 'usleep 1000' 'keydown Super_L' 'key Return' 'keyup Super_L' 'usleep 300' 'key Down'
+sleep 0.1s;
+
+# Previous
+xte 'str  ' 'usleep 1000' 'keydown Super_L' 'key Left' 'keyup Super_L' 'usleep 300' 'key Down'
+sleep 0.1s;
+
+# Next
+xte 'str  ' 'usleep 1000' 'keydown Super_L' 'key Right' 'keyup Super_L'
+sleep 1s;
+
+# Exit
+xte 'key Escape'
+

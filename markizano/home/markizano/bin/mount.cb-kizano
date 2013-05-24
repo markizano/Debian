@@ -1,0 +1,3 @@
+#!/bin/bash
+
+sshfs markizano@cb-kizano2:/home/clickbooth /home/clickbooth -p 90 -o allow_other,follow_symlinks

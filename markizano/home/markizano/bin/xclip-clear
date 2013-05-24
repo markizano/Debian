@@ -1,0 +1,7 @@
+#!/bin/bash
+
+for i in clipboard primary secondary; do
+	cat /dev/null | xclip -o -selection $i
+done;
+
+echo "done."

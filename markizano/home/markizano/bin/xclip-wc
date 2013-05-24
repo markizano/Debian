@@ -1,0 +1,8 @@
+#!/bin/bash
+
+echo -e "\033[32mClip\033[00m"
+xclip -o -selection clip | wc
+echo -e "\n\033[32mPrimary\033[00m"
+xclip -o -selection p | wc
+echo -e "\n\033[32mSecondary\033[00m"
+xclip -o -selection s | wc

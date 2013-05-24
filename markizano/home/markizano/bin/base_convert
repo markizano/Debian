@@ -1,0 +1,19 @@
+#!/usr/bin/php
+<?php
+
+foreach($_SERVER['argv'] as $key => $string)
+	$args[$key] = strToLower($string);
+
+if(!isset($args[1]) || $args[1] == null || $args[1] == '-h' || $args[1] == '--help'){
+?>
+	Usage: base_convert [number] [from] [to]
+number		The number to convert
+from		The base from (2-35)
+to			The base to (2-35)
+
+<?php
+	return 0;
+}
+
+print strToUpper(base_convert($args[1], $args[2], $args[3])).chr(10);
+

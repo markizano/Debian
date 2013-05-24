@@ -1,0 +1,12 @@
+#!/bin/bash
+
+if [ ! -d ~/.snippets ]; then
+	echo "Hey! No snippets to load from $HOME/.snippets  :/";
+	exit 1;
+fi
+
+for file in $(find ~/.snippets -type f); do
+	echo -e "\033[01m$file\033[0m";
+	cat "$file";
+	echo;
+done;

@@ -1,0 +1,19 @@
+#!/bin/bash
+
+function _unsvn(){
+  find "$1" -type d -name .svn -prune -exec rm -Rf {} \;
+  return 0;
+}
+
+if [ -z "$1" ]; then
+	target="$(pwd)";
+else
+	if [ ! -d "$1" ]; then
+		echo "$(basename "$0"): cannot stat \`$1'. No such directory." 1>&2;
+	fi
+	target="$1";
+fi
+
+echo -e "Are you sure you want to unsvn ${target}?";
+read confirm;
+echo $confirm | grep -iP 'y(es)?' >/dev/null && _unsvn $target || echo Abort.;

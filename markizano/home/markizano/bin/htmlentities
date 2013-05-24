@@ -1,0 +1,22 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+use Carp;
+
+use HTML::Entities 'encode_entities';
+use File::Slurp 'read_file';
+
+my ($input);
+
+$input = shift @ARGV if exists $ARGV[0];
+$input = File::Slurp::read_file( $input ) if $input;
+
+if ( not $input ) {
+	$/ = undef;
+	$input = <STDIN>;
+}
+
+croak STDERR "htmlentities [input|file] | echo 'input' | htmlentities\n" if not $input;
+
+print encode_entities($input);

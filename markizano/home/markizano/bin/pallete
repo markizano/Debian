@@ -1,0 +1,19 @@
+#!/usr/bin/php
+<?php
+//*
+for($i = 30, $k = 40; $i <= 36; $i++, $k++)
+	print "\033[01;{$i}mColor$i\033[01;00m\t\t\033[01;{$k}mColors$k\033[00m\n";
+
+print "\033[00m";
+
+/*/
+
+$output = (string)null;
+for($a = 0; $a <= 50; $a++){
+	for($b = 0; $b <= 50;$b++){
+		printf("\033[%02d;%02dm:$a;$b:\033[00m", $a, $b);
+		if($b % 10 == 1) echo "\n";
+	}echo "\033[00m$a";
+}
+echo chr(10);
+//*/

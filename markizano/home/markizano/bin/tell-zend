@@ -1,0 +1,4 @@
+#!/bin/bash
+
+echo "<Zend_Bot> $(whoami), Please note that Zend is a company. You probably meant to say 'the Zend Framework' or ZF. Also see: http://tinyurl.com/zendzfdiff"
+

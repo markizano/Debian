@@ -1,0 +1,4 @@
+#!/bin/php
+<?php
+date_default_timezone_set(trim(file_get_contents('/etc/timezone')));
+echo date('U');

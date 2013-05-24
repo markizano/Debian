@@ -1,0 +1,12 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+use Carp;
+
+croak "Usage: $0 [Perl::Module]\n" if ( !$ARGV[0] || $ARGV[0] =~ m/--?h(?:elp)?/i );
+
+$ARGV[0] =~ s!::!/!g;
+foreach (@INC) {
+	print "$_/$ARGV[0].pm\n" if ( -f "$_/$ARGV[0].pm" );
+}

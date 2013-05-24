@@ -1,0 +1,5 @@
+#!/bin/bash
+
+sudo /home/markizano/bin/resolv
+sudo sshfs -p 90 -o allow_other zetherus:/home/Media /home/Media/Downloads/files
+#sshfs -p 90 -o allow_other markizano@asthralios.markizano.net:/home/Media /home/Media/Downloads/files

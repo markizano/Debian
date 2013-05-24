@@ -1,0 +1,17 @@
+#!/usr/bin/php
+<?php
+
+$_HASH = null;
+if(!isset($_SERVER['argv'][1]) || empty($_SERVER['argv'][1]) || $_SERVER['argv'][1] == '-'){
+	$_HASH = file_get_contents('php://stdin');
+}elseif(strToLower($_SERVER['argv'][1]) == '--help'){
+?>
+Usage: sha1 [String]
+If [String] is ommited, null, empty or "-" without quotes, hash standard input.
+<?php
+	return 0;
+}else{
+	$_HASH = $_SERVER['argv'][1];
+}
+print strToUpper(SHA1($_HASH).chr(10));
+

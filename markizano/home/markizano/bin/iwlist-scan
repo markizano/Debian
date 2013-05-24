@@ -1,0 +1,196 @@
+#!/usr/bin/env php
+<?php
+
+class Bootstrap
+{
+    public static $self;
+    public static $default_dev;
+
+    public static function Usage()
+    {
+        fWrite(STDOUT, "Usage: self::$self [dev]  - Where [dev] is the device to check for scans (Defaults to self::$default_dev).\n\n");
+        return 8;
+    }
+
+    public static function getStdin()
+    {
+        // Web or cli, input doesn't come from the same place...
+        $input = array(
+            'stdin' => file_get_contents('php://stdin'),
+            'input' => file_get_contents('php://input'),
+        );
+
+        return empty($input['stdin'])? $input['input']: $input['stdin'];
+    }
+
+    /**
+     * Fetches data from a system command.
+     *
+     * @param String    $cmd    The command with escaped arguments to execute.
+     * @param Integer   $return The return code will be assigned to this variable.
+     * @param String    $output The output from the command. May return the last line or the whole thing,
+     *                          depending on which shell function you have availale to PHP at runtime.
+     * @param String    $errors If any errors arise from the command, they will be recorded here.
+     *
+     * @return void
+     */
+    public static function system($cmd, &$return = 0, &$output = null, &$errors = null)
+    {
+        // Otherwise, try to determine the device.
+        switch (true) {
+            case function_exists('shell_exec'):
+                $output = shell_exec($cmd);
+                break;
+            case function_exists('system'):
+                $output = system($cmd, $return);
+                break;
+            case function_exists('exec'):
+                exec($cmd, $output, $return);
+                break;
+            case function_exists('proc_open'):
+                $desc_spec = array(
+                  0 => array('pipe', 'r'),
+                  1 => array('pipe', 'w'),
+                  2 => array('pipe', 'w'),
+                );
+
+                $pipes = null;
+                $cwd = getcwd();
+                $env = array(
+                  'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:.:/home/markizano/bin',
+                );
+
+                $pf = proc_open($cmd, $desc_spec, $pipes, $cwd, $env);
+                $output = stream_get_contents($pipes[1]);
+                // Relay the error out the door.
+                fWrite(STDERR, $errors = stream_get_contents($pipes[2]));
+
+                foreach ($pipes as $pipe) is_resource($pipe) && fClose($pipe);
+                $return = proc_close($pf);
+                break;
+            default:
+                fWrite(STDERR, "Could not call application as I have not access to a shell command.\n");
+                die(1);
+        }
+
+        return $return;
+    }
+
+    /**
+     * Parses the input received from the argument list and makdes decisions on what to print.
+     *
+     * @param Array $argv   The arguments passed into the application -1 for the app name.
+     *
+     * @return void
+     */
+    public static function parseInput(array $argv)
+    {
+        if (is_null($argv) || !is_array($argv)) {
+            throw new InvalidArgumentException('Argument 1 ($argv) expected array.');
+        }
+
+        if (isset($argv[1])) {
+            fWrite(STDERR, self::$self . "Warning: Other arguments will be ignored...\n");
+        }
+
+        $argv = $argv[0];
+        // If we are passed an unknown option, break out.
+        if (strToLower($argv) == '-h' || strToLower($argv) == '--help' || $argv{0} == '-') {
+            return self::Usage();
+        }
+
+        $output = $errors = null;
+        $argv = empty($argv)? null: escapeshellarg($argv);
+        $cmd = "/sbin/iwlist $argv scan";
+        self::system($cmd, $return, $output, $errors);
+
+        $scans = $scan = array();
+        $void = null;
+        $output = explode("\n", $output);
+        $sort_index = 'Bit Rates';
+        foreach ($output as $i => $line) {
+            $line = trim($line);
+            if (empty($line)) continue;
+            if (isset($scan[$sort_index]) && subStr($line, 0, 4) == 'Cell') {
+                $scans[$scan[$sort_index]] = $scan;
+                $scan = array();
+                $line = preg_replace('/Cell [0-9]+ - /i', null, $line);
+            }
+
+            list($name, $value) = explode(':', $line, 2);
+            switch(strToLower(trim($name))) {
+                case 'address': case 'essid': case 'protocol': case 'mode': case 'channel':
+                case 'encryption key': case 'bit rates':
+                    $scan[$name] = $value;
+                    break;
+                case 'extra':
+                    if (strpos($value, ':') !== false) {
+                        list($name, $value) = explode(':', $value, 2);
+                        $scan['extra'][trim($name)] = $value;
+                    }
+                default:
+                    if ($line{0} == 'Q') {
+                        $line = explode(' ', str_replace(array(' level', ' dBm'), array('_level', 'dBm'), $line));
+                        foreach ($line as $l) {
+                            if (empty($l)) continue;
+                            $l = explode('=', $l, 2);
+                            $scan['extra'][$l[0]] = $l[1];
+                        }
+                    }
+            }
+        }
+
+        if (count($scans)) {
+            sort($scans, SORT_NUMERIC);
+            foreach ($scans as $i => $scan) {
+                if (empty($scan['Address'])) continue;
+                printf("%s(%d)\n%-15s%20s\n%-15s%20s\n%-15s%20d\n%-15s%20s\n%-15s%20s\n%-15s%20s\n%-15s%20s\n"
+                    . "%-15s\n",
+                    "Cell", $i, 'Address: ', $scan['Address'], 'ESSID: ', $scan['ESSID'],
+                    'Channel: ', $scan['Channel'], 'Mode: ', $scan['Mode'], 'Bit Rates: ', $scan['Bit Rates'],
+                    'Encryption: ', $scan['Encryption key'], 'Protocol: ', $scan['Protocol'],
+                    'Extra:'
+                );
+
+                if (isset($scan['extra']) && is_array($scan['extra'])) {
+                    foreach ($scan['extra'] as $name => $extra) {
+                        printf("    %-15s%16s\n", $name, $extra);
+                    }
+                }
+
+                print "\033[32m" . str_repeat('-', 50) . "\033[00m\n";
+            }
+        }
+
+        return 0;
+    }
+
+    /**
+     * 
+     *
+     * @return Integer  Return code for this application.
+     */
+    public static function main($argc = 0, array $argv = array())
+    {
+        // Shift off the name of the application.
+        self::$self = basename(array_shift($argv));
+        self::$default_dev = 'wlan0';
+        self::system('id -u', $return, $uid, $errors);
+        if (!isset($uid) || (int)$uid != 0) {
+            throw new RuntimeException('You must be root to execute this and get results!');
+        }
+
+        if (!defined('STDERR') || !defined('STDOUT')) {
+            fWrite('php://stderr', 'Could not continue application as it was not called from the console!');
+            die(1);
+        }
+
+        return self::parseInput($argv);
+    }
+}
+
+require 'Kizano/Misc.php';
+Kizano_Misc::$registerDebug = false;
+
+return Bootstrap::main($_SERVER['argc'], $_SERVER['argv']);
+

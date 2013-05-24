@@ -1,0 +1,8 @@
+#!/bin/bash
+
+echo -e "\033[32mClipBoard\033[00m\n";
+xclip -o -selection clipboard
+echo -e "\n\033[32mPrimary\033[00m\n";
+xclip -o -selection primary
+echo -e "\n\033[32mSecondary\033[00m\n";
+xclip -o -selection secondary

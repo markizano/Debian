@@ -1,0 +1,4 @@
+#!/bin/bash
+
+sudo chown markizano:kizano -R ~/bin
+chmod 755 -R ~/bin

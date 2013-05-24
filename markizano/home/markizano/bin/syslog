@@ -1,0 +1,17 @@
+#!/usr/bin/php
+<?php
+
+array_shift($_SERVER['argv']);
+count($_SERVER['argv']) && $arg = array_shift($_SERVER['argv']);
+if(!isset($arg) || empty($arg) || preg_match('/--?h(elp)?/i', strToLower($arg)) ){
+?>
+Usage: syslog [message]
+<?php
+	return 0;	
+}else{
+	unset($_SERVER['argv'][0]);
+	openlog('php_bin', LOG_PID, LOG_DAEMON);
+	syslog(LOG_DEBUG, join(chr(32), $_SERVER['argv']));
+	closelog();
+}
+

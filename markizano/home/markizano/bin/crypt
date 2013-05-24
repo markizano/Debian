@@ -1,0 +1,106 @@
+#!/bin/bash
+
+METHOD="";
+PASSWORD="";
+START_EDITOR=false;
+FILE="";
+
+function Usage() {
+	echo -e "Usage: crypt.sh [-D|-E] -p PASSWORD --file FILE [--editor] ";
+	echo -e "-D			Decrypt information";
+	echo -e "-E			Encrypt information";
+	echo -e "-p			The password to use during encryption|decryption";
+	echo -e "--editor	0 doNothing; <>0 start \$EDITOR";
+	echo -e "--file		The file to use";
+	exit;
+}
+
+for arg in $(seq 1 "$#"); do
+	case $1 in
+		-D|-d)
+			METHOD=D
+		;;
+		-E|-e)
+			METHOD=E
+		;;
+		-p|-P|--password|--pass)
+			shift;
+			PASSWORD="$1";
+		;;
+		--editor)
+			START_EDITOR=true;
+		;;
+		--file)
+			shift;
+			FILE="$1";
+		;;
+		*)
+			[ -z "$1" ] && continue;
+			#echo "$(basename "$0"): Unknown argument \`$1'.";
+			Usage;
+		;;
+	esac
+	shift;
+done;
+
+if [ -z "$FILE" ] || echo "$@" | egrep '--?h(elp)?' 2>/dev/null >/dev/null; then
+	Usage;
+fi
+
+if [ -z "$PASSWORD" ]; then
+	echo -e "\033[31mWarning!\033[00m: Encrypting with an empty password!" /dev/stderr;
+fi
+
+if [ "$METHOD" == "E" ]; then
+	if [ ! -f $FILE ]; then
+		echo "The password file doesn't exist!";
+		exit 1;
+	fi
+	HASH=`echo -n "$PASSWORD" | openssl sha -sha512`;
+	openssl des -in ${FILE} 				-out ${FILE}.blowfish 		-k $HASH -e -blowfish;
+	openssl des -in ${FILE}.blowfish 		-out ${FILE}.des3 			-k $HASH -e -des3;
+	openssl des -in ${FILE}.des3 			-out ${FILE}.rc4 			-k $HASH -e -rc4;
+	openssl des -in ${FILE}.rc4 			-out ${FILE}.aes 			-k $HASH -e -aes-256-cbc;
+
+	openssl des -in ${FILE}.aes 			-out ${FILE}.cpt.des 		-k $HASH -e -des;
+	openssl des -in ${FILE}.cpt.des			-out ${FILE}.cpt.blowfish	-k $HASH -e -blowfish;
+	openssl des -in ${FILE}.cpt.blowfish	-out ${FILE}.cpt.aes		-k $HASH -e -aes-192-cbc;
+	openssl des -in ${FILE}.cpt.aes			-out ${FILE}.cpt.rc2		-k $HASH -e -rc2-64-cbc;
+	cat ${FILE}.cpt.rc2 | base64 -w 0 > ${FILE}.crypt;
+
+	rm -f ${FILE} ${FILE}.blowfish ${FILE}.des3 ${FILE}.rc4 ${FILE}.aes ${FILE}.cpt.*
+	# Force history to be written to disk and clear it.
+	sleep 1s && history -ac && cat /dev/null > ~/.bash_history &
+	clear;
+	echo "Encrypted Text.";
+	exit 0;
+fi
+
+if [ "$METHOD" == "D" ]; then
+	if [ -z "$EDITOR" ]; then
+		echo -e "WARNING: Variable \$EDITOR not set or null.\nDefaulting to system editor.";
+		export EDITOR=nano;
+	fi
+	cat $FILE.crypt | base64 -d > $FILE.cpt.rc2
+	HASH=`echo -n "$PASSWORD" | openssl sha -sha512`;
+	openssl des -in ${FILE}.cpt.rc2			-out ${FILE}.cpt.aes		-k $HASH -d -rc2-64-cbc;
+	openssl des -in ${FILE}.cpt.aes			-out ${FILE}.cpt.blowfish	-k $HASH -d -aes-192-cbc;
+	openssl des -in ${FILE}.cpt.blowfish	-out ${FILE}.cpt.des		-k $HASH -d -blowfish;
+	openssl des -in ${FILE}.cpt.des			-out ${FILE}.aes			-k $HASH -d -des;
+
+	openssl des -in ${FILE}.aes				-out ${FILE}.rc4			-k $HASH -d -aes-256-cbc;
+	openssl des -in ${FILE}.rc4				-out ${FILE}.des3			-k $HASH -d -rc4;
+	openssl des -in ${FILE}.des3			-out ${FILE}.blowfish		-k $HASH -d -des3;
+	openssl des -in ${FILE}.blowfish		-out ${FILE}				-k $HASH -d -blowfish;
+
+	rm -f ${FILE}.blowfish ${FILE}.des3 ${FILE}.rc4 ${FILE}.aes ${FILE}.cpt.*
+	echo -e "Start editor? [y/n]"; read junk;
+	if [ "$junk" == "y" ] || [ "$junk" == "Y" ]; then
+		sleep 1s && $EDITOR $FILE &
+	fi
+	# Force history to be written to disk and clear it.
+	sleep 1s && history -ac && cat /dev/null > ~/.bash_history &
+	echo "Decrypted text";
+	exit 0;
+fi
+

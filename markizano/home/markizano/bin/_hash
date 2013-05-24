@@ -1,0 +1,29 @@
+#!/usr/bin/php
+<?php
+
+$arg = $_SERVER['argv'];
+$_TYPE = 'sha1';
+$_HASH = null;
+if(!isset($arg[1]) || in_array(strToLower($arg[1]), array('-h', '--help'))){
+?>
+Usage: _hash [Type] [String]
+Default [Type] is 'sha1'
+If [Type] is "_list_" (case-insensitive), list available algorithms
+If [String] is ommited, null, empty, or "-", hash standard input.
+<?php
+	return 0;
+}elseif(strToLower($arg[1]) == '_list_'){
+	print_r(hash_algos());
+	die("\n");
+}elseif(!isset($arg[2]) || empty($arg[2]) || $arg[2] == '-'){
+	$_TYPE = $arg[1];
+	$f = fOpen('php://stdin', 'r');
+	while(!fEOF($f)) $_HASH .= fGetc($f);
+	$_HASH = trim($_HASH);
+	fClose($f);
+}else{
+	$_TYPE = trim($arg[1]);
+	$_HASH = trim($arg[2]);
+}
+
+echo strToUpper(hash($_TYPE, $_HASH)), chr(10);

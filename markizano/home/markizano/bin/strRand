@@ -1,0 +1,56 @@
+#!/usr/bin/php
+<?php
+
+function strRand($Len, $numbers = true, $letters = true, $symbols = false){
+ 	$nums = '0123456789';
+ 	$letts = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+# 	$syms = '`~!@#$%^&*(){}|[]\\:;<>?,./';
+ 	$syms = '!@#%';
+	$RandStr = ((bool)$numbers? $nums: null).((bool)$letters? $letts: null).((bool)$symbols? $syms: null);
+	$result = "";
+	for($i = 0; $i < $Len; $i++){
+		$result .= substr($RandStr, mt_rand(0, strlen($RandStr) -1), 1);
+	}
+	if(! isset($result{$Len -1}))
+		$result .= substr($RandStr, mt_rand(0, strlen($RandStr) -1), 1);
+	return $result;
+}
+
+$arg = $_SERVER['argv'];
+if(!isset($arg[1]) || empty($arg[1]) || strToLower($arg[1]) == '-h' || strToLower($arg[1]) == '--help'){
+?>
+Usage: strRand [Count] [Numbers] [Letters] [Symbols]
+Count 		- The number of characters to produce.
+Numbers		- (Default yes)	Weathe to include numbers in the string (0-9)
+Letters		- (Default yes)	Weather to include letters (a-z, A-Z)
+Symbols		- (Default no)	Weather to include symbols (~!@#%$^&*()`{}|[]\:";'<>?,./)
+	Valid answers for [Numbers], [Letters], and [Symbols] are (case-insensitive):
+	1|0
+	true|false
+	yes|no
+	on|off
+<?php
+	return 0;
+}
+
+function answer($bool){
+	switch(strToLower($bool)){
+		case 'yes':
+		case 'on':
+		case 'true':
+		case 1:
+		case true:
+			return true;
+	break;
+		case 'no':
+		case 'off':
+		case 'false':
+		case 0:
+		case false:
+			return false;
+	default:
+		return -1;
+	}
+}
+
+echo strRand($arg[1], isset($arg[2])? answer($arg[2]): true, isset($arg[3])? answer($arg[3]): true, isset($arg[4])? answer($arg[4]): false), chr(10);

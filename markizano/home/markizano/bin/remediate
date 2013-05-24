@@ -1,0 +1,10 @@
+#!/usr/bin/env php
+1) Login to your hosting account to obtain FTP/SFTP (herein "(S)FTP") credentials.
+2) Access your site via (S)FTP to find the file containing this snippet.
+3) Download the file.
+4) Remove either of the snippets referenced above in "FULL_CODE".
+5) Save changes.
+6) Upload the file back to your site.
+7) Change all access credentials to your applications, including Wordpress/Drupal/Joomla!/etc admin pages, MySQL databases,
+    SSH users (if enabled), and (S)FTP credentials.
+8) Be extra vigilent for any suspicious activity on your site for the next week.

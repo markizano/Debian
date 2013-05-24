@@ -1,0 +1,29 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+use Carp;
+use Getopt::Long 'GetOptions';
+
+$SIG{ 'INT' } = sub {
+	warn "Use --help for more info.\n";
+	die;
+};
+
+my ( $help, $rot13, $string );
+GetOptions(
+	help => \$help,
+	'string=s' => \$string,
+);
+
+$string ||= shift @ARGV if exists $ARGV[0];
+croak "Usage: $0 --sring [rot13] | -\n" if $help;
+
+if ( !$string || $string eq '-' ) {
+	$string = '';
+	$string .= <STDIN> until eof STDIN;
+}
+
+$string =~ y/A-Za-z/N-ZA-Mn-za-m/;
+
+print "$string\n";

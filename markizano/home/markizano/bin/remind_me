@@ -1,0 +1,22 @@
+#!/bin/bash
+
+if [ ! -f ~/bin/.remind ]; then
+	touch ~/bin/.remind;
+	chmod 755 ~/bin/.remind;
+	sudo chown markizano:markizano ~/bin/.remind;
+fi
+
+if [ "$1" == "" ]; then
+	if [ "`cat ~/bin/.remind`" == "" ] || [ "`cat ~/bin/.remind`" == \n ]; then
+		echo -e "File is empty...\n";
+	else
+		cat ~/bin/.remind;
+	fi
+elif [ "$1" == "-h" ] || [ "$1" == "--help" ]; then
+	echo -e "Usage:\n\tremind_me [newMsg|-e|--edit]\nnewMsg\t\tThe message to display (GET)\nIf newMsg is ommitted, display the last message inputted by newMsg.\n-e\t\t\tStart editor.\n--edit\t\tStart editor.\n\n";
+elif [  "$1" == "-e" ] || [ "$1" == "--edit" ]; then
+	nano ~/bin/.remind;
+else
+	echo -e "$1" > ~/bin/.remind;
+	echo -e "Your todo file:\n`cat ~/bin/.remind`";
+fi

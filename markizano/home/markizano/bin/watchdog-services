@@ -1,0 +1,117 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+use Carp;
+use Data::Dumper;
+
+use Email::Send;
+use Email::Send::Gmail;
+use Email::Simple::Creator;
+
+use Proc::ProcessTable;
+
+use constant EMERGENCY => '<cell-number>';
+use constant NOTIF => '<system-email>';
+
+our ( %PROCS );
+
+# service => process
+%PROCS = (
+	apache2 => '/usr/sbin/apache2',
+	mysql => '/usr/sbin/mysqld',
+	ssh => '/usr/sbin/sshd',
+	samba => '/usr/sbin/smbd',
+	pptpd => '/usr/sbin/pptpd',
+	iptables => '/usr/bin/iptables',
+);
+
+open $_, "</etc/hostname"; my $hostname = <$_>; chomp $hostname; close $_;
+
+sub start_service {
+	my ( $proc, $service, $process ) = @_;
+
+	# Attempt to start the process and,
+	system('/usr/sbin/service', $service, 'start');
+	sleep 2;
+
+	# Check the return code to ensure it started alright.
+#	unless ( $? == 0 ) {
+		#warn "\033[31mEMERGENCY\033[0m\n";
+#		send_mail(EMERGENCY, 'Service Down!', "${service}($process) is not running on $hostname, and I can't start it! D:");
+#		return 0;
+#	}
+
+	# Check the process table to ensure we did start it and the return code isn't just joshing us...
+	if ( check_process( $proc, $process ) ) {
+		#warn "\033[32mNOTIF\033[0m\n";
+		send_mail(NOTIF, 'Restarted Service', "I had to restart ${service}($process) on $hostname.\n\n-watchdog\n");
+		return 1;
+	}
+
+	#warn "\033[31mEMERGENCY\033[0m\n";
+	if ( $service eq 'iptables' ) {
+		# Check to make sure the firewall in fact was not applied.
+		my $empty = q/^Chain\s*INPUT\s*\(policy\s*ACCEPT\)\s*num\s*target\s*prot\s*opt\s*source\s*destination\s*Chain\s*FORWARD\s*\(policy\s*ACCEPT\)\s*num\s*target\s*prot\s*opt\s*source\s*destination\s*Chain\s*OUTPUT\s*\(policy\s*ACCEPT\)\s*num\s*target\s*prot\s*opt\s*source\s*destination\s*$/;
+		if ( `iptables -L -n --line-numbers` =~ m/$empty/ ) {
+			send_mail(EMERGENCY, 'Service Down!', "${service}($process) The firewall is empty on $hostname.");
+		} else {
+			return 1;
+		}
+	} else {
+		send_mail(EMERGENCY, 'Service Down!', "${service}($process) is not running on $hostname, and I can't start it! D:");
+	}
+	return 0;
+}
+
+sub check_process {
+	my ( $proc, $cmd ) = @_;
+	croak "\$proc not defined!\n" unless defined $proc && ref $proc eq 'Proc::ProcessTable';
+
+	foreach my $process ( @{ $proc->table } ) {
+		warn "\033[33m test " . $process->{ cmndline } . ";\n" if exists $ENV{DEBUG};
+		if ( $process->{ cmndline } =~ m/$cmd/ ) {
+			print "$cmd is running.\n" if exists $ENV{DEBUG};
+			return 1;
+		}
+	}
+
+	warn "\033[31m$cmd not running!\033[0m\n" if exists $ENV{DEBUG};
+	return 0;
+}
+
+sub send_mail {
+    my ($email, $sender, $opts, $to, $subj, $body);
+    $to = shift or croak "I require a target.";
+    $subj = shift || "";
+    $body = shift || "";
+
+    $opts = {
+        header => [
+            From    => 'watchdog@markizano.net',
+            To      => $to,
+            Subject => $subj,
+        ],
+        body => $body,
+    };
+
+    $email = Email::Simple->create(%$opts);
+
+    $sender = Email::Send->new({
+        mailer => "Gmail",
+        mailer_args => [
+            name => "Zetherus",
+            username => 'zetherus@markizano.net',
+            password => 'genywvwqnrkwzsui',
+        ]
+    });
+
+    eval { $sender->send($email) };
+    print "Error sending email: $@; $!" && die if $@ or $!;
+    return 1;
+}
+
+my $proc = new Proc::ProcessTable;
+foreach my $service ( keys %PROCS ) {
+	start_service( $proc, $service, $PROCS{ $service } ) unless check_process $proc, $PROCS{ $service };
+}

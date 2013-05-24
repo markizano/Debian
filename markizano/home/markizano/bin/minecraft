@@ -1,0 +1,10 @@
+#!/bin/bash
+
+JAVA="/usr/bin/java"
+MC='/home/markizano/bin/minecraft.jar'
+
+if [ "$1" == "lowmem" ]; then
+	$JAVA -Xmx512M -Xms512M -jar "$MC"
+else
+	$JAVA -Xmx2G -Xms2G -jar "$MC"
+fi

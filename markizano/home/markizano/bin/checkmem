@@ -1,0 +1,3 @@
+#!/bin/bash
+
+echo -e "[$(date +%F/%R:%S)] $(free -m)\n"

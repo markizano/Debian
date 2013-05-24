@@ -1,0 +1,18 @@
+#!/usr/bin/php
+<?php
+
+$args = $_SERVER['argv'];
+if(isset($args[1]) && ($args[1] == '-h' || $args[1] == '--help')){
+?>
+Usage: strtolower [String]
+Converts a string to it's lowercase equivalent.
+<?php
+	return 1;
+}
+
+if(!isset($args[1]) || empty($args[1]) || $args[1] == '-'){
+	$args[1] = file_get_contents('php://stdin');
+}
+
+echo strToLower(trim($args[1])).chr(10);
+return 0;

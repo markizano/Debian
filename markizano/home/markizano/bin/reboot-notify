@@ -1,0 +1,31 @@
+#!/bin/bash
+
+# Configuration options and variables
+DISPLAY=:0.0
+ZEN="env DISPLAY=$DISPLAY $(which zenity)";
+NOTE="env DISPLAY=$DISPLAY $(which notify-send)";
+ICON="/usr/share/icons/gnome/32x32/apps/gnome-terminal.png";
+DIR="$(dirname "$0")";
+
+# If this notification is already in place, then don't execute this script
+if [ -f /var/run/reboot-notify-lock ]; then
+	exit 0;
+fi
+
+# If no reboot is required, don't run this script.
+if [ ! -f /var/run/reboot-required ]; then
+	exit 0;
+fi
+
+# Locks down future actions of this script.
+# @subprocess
+function lock_notify () {
+	touch /var/run/reboot-notify-lock;
+	$NOTE -u critical -t 5000 -i /home/markizano/bin/reboot.svg Reboot 'A reboot is required by the system for updates to take place.';
+	$ZEN --notification --window-icon /home/markizano/bin/reboot.svg --text='A reboot is required.';
+	# Remove the notification lock so that when this script runs again, it'll bug me again >:}~
+	[ -f /var/run/reboot-notify-lock ] && rm /var/run/reboot-notify-lock;
+}
+
+# Otherwise, if a reboot is required, then notify me.
+lock_notify &

@@ -1,0 +1,4 @@
+#!/bin/bash
+
+/sbin/ifconfig br0 down
+/usr/sbin/brctl delbr br0

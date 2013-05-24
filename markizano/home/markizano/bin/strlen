@@ -1,0 +1,5 @@
+#!/bin/bash
+
+php $Mod_php\strlen.php "${*}";
+
+

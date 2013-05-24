@@ -1,0 +1,2 @@
+#!/bin/bash
+echo -e 'search asthralios.net\ndomain asthralios.net\nnameserver 223.255.255.50\nnameserver 4.2.2.6\nnameserver 156.154.70.1' > /etc/resolv.conf 

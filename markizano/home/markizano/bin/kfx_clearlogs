@@ -1,0 +1,3 @@
+#!/bin/bash
+
+echo 'truncate table `ajax_chat_messages`;' | ssh markizano@dev.kfx2.com 'mysql -uroot -pmmdesign -hlocalhost markizano'

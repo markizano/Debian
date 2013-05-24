@@ -1,0 +1,12 @@
+#!/usr/bin/env php
+<?php
+
+class argv{
+	public function __construct(){
+		$args = $_SERVER['argv'];
+		
+	}
+}
+
+var_dump($args);
+

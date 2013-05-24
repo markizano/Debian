@@ -1,0 +1,21 @@
+#!/bin/bash
+
+if [ -n "$1" ]; then
+	host="$1" 
+else
+       while [ -z "$host" ]; do
+        echo -n "Host to Check?: "
+        read host;
+        [ -n "$host" ] && break;
+    done
+fi
+
+if [ -z "$host" ]; then
+    echo 'Host field empty!?!?';
+    exit 1;
+else
+    host -t a ${host};
+    fping -t50 ${host};
+    exit 0;
+fi
+

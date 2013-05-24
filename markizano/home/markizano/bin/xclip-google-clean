@@ -1,0 +1,6 @@
+#!/bin/bash
+
+xclip="$(xclip -o -selection c)";
+no_google="${xclip:30}";
+stripped="$(echo "$no_google" | sed -r 's/&.*//g')";
+echo "$stripped";

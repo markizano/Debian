@@ -1,0 +1,25 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+use Carp;
+use Data::Dumper;
+
+$/ = undef;
+my $text = shift @ARGV;
+
+if ( $text && ( -f $text ) ) {
+    open FH, '<', $text;
+    $text = <FH>;
+    close FH;
+}
+
+$text = <STDIN> unless $text;
+
+$text =~ s/\s+/\\s*/gs;
+$text =~ s/(.*)/\Q$1/g;
+$text =~ s/\\+s\\\**/\\s*/gs;
+$text =~ s/(?:\\s\*)+/\\s*/gs;
+
+print $text;
+

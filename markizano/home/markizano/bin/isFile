@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# Name: isFile
+# By: Markizano
+# Description: Outputs 'true' if the argument is a file, 'false' otherwise.
+
+if [ -f $1 ]; then
+	echo "true";
+	exit;
+fi
+echo "false";

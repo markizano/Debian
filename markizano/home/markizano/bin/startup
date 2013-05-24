@@ -1,0 +1,7 @@
+#!/bin/bash
+
+execute twinkle
+execute thunderbird
+execute pidgin
+sudo execute firefox
+

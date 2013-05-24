@@ -1,0 +1,4 @@
+#!/bin/bash
+
+sshfs -p 90 markizano@asthralios.markizano.net:/ /home/Zetherus
+

@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# Name: isDir
+# By: Markizano
+# Description: Outputs 'true' if the argument is a directory, 'false' otherwise.
+
+if [ -d $1 ]; then
+	echo "true";
+	exit;
+fi
+echo "false";

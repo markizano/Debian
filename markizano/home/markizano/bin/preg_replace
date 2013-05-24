@@ -1,0 +1,42 @@
+#!/bin/php
+<?php
+
+$arg = $_SERVER['argv'];
+if( !isset($arg[1]) || !isset($arg[2]) || empty($arg[1]) ){
+# We can replace a null string which is why arg#2 can be null.
+# We can read from stdin if arg#3 is null or not set.
+?>
+Usage: preg_replace [RegEx] [Replace] [Subject]
+RegEx	- The regular expression that will be tested against [Subject]
+Replace	- The replacement string for what is found by [RegEx]. Can include \1-\9
+Subject	- The test subject which will incur scrutiny against [RegEx]. If ommitted or null, read from stdin.
+<?php
+	return 0;
+}
+if(!isset($arg[3]) || empty($arg[3]) || $arg[3] == '-'){
+	$arg[3] = null;
+	$f = fOpen('php://stdin', 'rb');
+	while(!fEOF($f))
+		$arg[3] .= fGetc($f);
+	fClose($f);
+}
+$arg[2] = str_replace(
+    '\t', "\t",
+    str_replace(
+        '\n', "\n",
+        str_replace(
+            '\r', "\r",
+            str_replace(
+                '\t', "\t",
+                preg_replace(
+                    '/(\\\d{1,3})/e', "base_convert(trim('\1', '\\'), 8, 10)",
+                    preg_replace(
+                        '/(\\x\d\d?)/', "base_convert(trim('\1', '\\'), 16, 10)", $arg[2]
+                    )
+                )
+            )
+        )
+    )
+);
+print join("\n", preg_replace($arg[1], $arg[2], explode("\n", $arg[3])));
+return 1;
