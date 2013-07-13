@@ -1,4 +1,0 @@
-#!/bin/bash
-
-xclip -selection c /home/Kebrauph/Asthralios.NET/Sig.txt
-xclip -selection p /home/Kebrauph/Asthralios.NET/Sig.txt

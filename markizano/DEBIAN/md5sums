@@ -1,8 +1,102 @@
-2bf160c33b975f76feb8417926aced96  etc/nanorc
-28bd700523b1482b357963b362e8cc9c  etc/screenrc
+18b01435bcb66d46944a935dd1071209  etc/init.d/markizano
 bd2c262bb9c54c81bc8a94a149f1941d  etc/sudoers.mz.dpkg-dist
-32c8633164a46e0738d145ffa64b199a  home/markizano/.alias
-5f2c5c65584cff985ded7e6f6325dbe0  home/markizano/.bashrc
+ce812134d45c922baba3a9dba961dd80  home/markizano/.alias
+6cbd7724e7a842c98b69efee65b3ceb9  home/markizano/.bashrc
+f646eca428768556d620635c7c41a7f1  home/markizano/bin/apt-get-key
+116dc5df61d9fae05fb2791a4dee7cea  home/markizano/bin/asc
+fb3c5173b59f3bfefba66599d8b6efca  home/markizano/bin/auth-socket
+3a782fcfa77872c8f7c324512a0820d9  home/markizano/bin/backup-system.sh
+31601d419d315eb3a873f963a120ea7e  home/markizano/bin/base_convert
+b08b1722c5c826799963ae508f9b0164  home/markizano/bin/battery
+09752bff4c64987f782322429ccaa8b3  home/markizano/bin/checkhost
+f8d548d5b8017f4427803abf20df6fa9  home/markizano/bin/checkmem
+86141c7b841752cabacae63fc6f96134  home/markizano/bin/chr
+c8e952811c30b7c9a812be29a232ba9f  home/markizano/bin/cleanup
+8acf03b232f152637f63b5ff9ac78f60  home/markizano/bin/crypt
+45ddceee002344d1467677cc6b245c53  home/markizano/bin/dimensions
+339b7679d38b97ea19f57f90fc608273  home/markizano/bin/exaile_next
+2060d406953079b65fe4e50546a09ebc  home/markizano/bin/exaile_prev
+788d576083ae7b7d4b203038610f80e7  home/markizano/bin/exaile_stop
+753f7e78f82e1a68a290e378f9da52c2  home/markizano/bin/exaile_toggle
+eaae6c1fc4fd3d4a6bc66702bb7f37ad  home/markizano/bin/explode
+95be9f59bbf8663b1492a0b9d898195e  home/markizano/bin/getifaddr
+6e890951590b300d1445e0a31f3fbb28  home/markizano/bin/git-proxy-wrapper
+ebae1c255aa0e40e97d97bba025a245f  home/markizano/bin/_hash
+76c4aa010a7c5e0f9d2eac3c027703a8  home/markizano/bin/_hashlist
+33466d48dcb60241370252d21f1a6c54  home/markizano/bin/headspin
+d28ca686d30ac53b5670fba8d3a51cb9  home/markizano/bin/hostcheck
+ed419a35a9d3fbbaa4de9fb70bdbcea2  home/markizano/bin/htmlentities
+b19a1c77035b263e5305d95588df7128  home/markizano/bin/internet
+62016aa5573506d8b1ed8f048cdab06b  home/markizano/bin/lint-check
+eee5fb0f54c31e6aef99f1fb7ca1f4e9  home/markizano/bin/loadavg.c
+2f1856fccaad844fcae2966867b8d841  home/markizano/bin/lpwgen
+3636a5d9bc7531e49850573f9958e776  home/markizano/bin/md5
+542882e96e573d34a64b0c84c383d97b  home/markizano/bin/mousedown
+1f40b11016e20c10403a6bea3b559b3b  home/markizano/bin/mouseup
+8e983c53a1d3101d703ebcbbd671558f  home/markizano/bin/musical-scale
+825c1e4612a729e3e1a59a4560836953  home/markizano/bin/nl2br
+931745ec4387e9df02e2c3590b65f863  home/markizano/bin/null.c
+50997d368f4eccf50323653aee0f14f1  home/markizano/bin/pallete
+b73a0edafc6e7750dc6176d4d247774c  home/markizano/bin/pcre-escape
+e5f39d7799ca95f4207ba50f66b98308  home/markizano/bin/perlmod
+29e46e997de1fd6e398efc1726a32d2d  home/markizano/bin/perror.c
+438ffb4119908e5fba2bd8b764d11779  home/markizano/bin/preg_match
+16e3e80ef7b88f1deedae109063dc96a  home/markizano/bin/preg_replace
+68d5b01eabee105d1bb14922bf3e324d  home/markizano/bin/PS1
+bf3da18dc1293cdbe80a5569dc3da807  home/markizano/bin/reboot-notify
+c0f19caa0cdb078c1f9ec451c1ff4220  home/markizano/bin/reboot.svg
+1a1feecf3af7356cb7311843095ff14f  home/markizano/bin/reset-console
+1d3a68bdc23b5a807881c8e08b7e1831  home/markizano/bin/resizeImages
+63c58a2abc043f90fd943c17cfa09ead  home/markizano/bin/rot13
+b918092dba244630543495076054170c  home/markizano/bin/sha1
+af40a4fabb7f4ab7f758335463745b3e  home/markizano/bin/snippets
+5586811a76290cde5e02f247d6b28572  home/markizano/bin/svn-amend
+854fe34e49e3ec83b6a22b423471e233  home/markizano/bin/svn-backup.py
+898cf1a55f9dd2a9fd28861b5eb47d57  home/markizano/bin/svnradd
+098d6d703df5cb588af418d2e5429235  home/markizano/bin/svnstat-unversioned
+01e60460651eab805494672b649dea1b  home/markizano/bin/svnstatus
+3e2f7d3b04db2985a19233f6329222dd  home/markizano/bin/syslog
+9982d6690cc153719a398826a5b089db  home/markizano/bin/takebin
+ad64bff05bf95f6c6906b1dd2f72bc70  home/markizano/bin/tell-zend
+4c4770855ad9791bd1bbf016d0a445e2  home/markizano/bin/testing
+8f27de954490f63e91b7aae7b39f87fa  home/markizano/bin/thunderbird-update
+b6f0663c2fbadd1738cb8b1c23df49c2  home/markizano/bin/title
+c3d9738cd59f8e59cabe8895cbd82227  home/markizano/bin/todo
+86e09199b55a593efbb1cc18266bef7b  home/markizano/bin/trim
+44211ebde2865cf38d65b8788dc8b3e4  home/markizano/bin/unsvn
+d75cf4601f089f22fe3bde43c9485460  home/markizano/bin/urldecode
+d41d8cd98f00b204e9800998ecf8427e  home/markizano/bin/urlencode
+5df89edd680c269bbd24bd0a514cc724  home/markizano/bin/vol
+8d5051a94f3c6fb955fead8a538ef893  home/markizano/bin/vol-
+a7ef511a806cf87a95171d505c757b81  home/markizano/bin/vol+
+489414eb329d44c8bda84267d7fef116  home/markizano/bin/watchdog-services
+83cb54f387e742aab8f574725d5d5028  home/markizano/bin/whatismyip
+4cd78c739e75b5c81ca9c5dc07aa29e8  home/markizano/bin/whois-clean
+91d40bae946b57ce28c30e476b9e5cc8  home/markizano/bin/wordwrap
+47c09e2db67c8f545b2509aeae3f5781  home/markizano/bin/x11grab
+678853dbc747d24a19464bfcc896366f  home/markizano/bin/xclip-all
+7b58a6cc787fa70c9d818bd13274bcb3  home/markizano/bin/xclip-base64
+fcfaa5f01785f7b09c90cb1fbe0318ab  home/markizano/bin/xclip-clear
+e8948ac9d15785b44d9daac22d6274bd  home/markizano/bin/xclip-google-clean
+193aa7da29be8c5f2eeaba5dc3f19a65  home/markizano/bin/xclip-grep
+c2d5ac15036fde7db14bb4ddb79e06b9  home/markizano/bin/xclip-htmldecode
+e79268ef96887b81b4e420644d9878b0  home/markizano/bin/xclip-htmlencode
+eed40d312daa22279249ae6fe63b101f  home/markizano/bin/xclip-lipsum
+a73deb49a54f411f667cfcd55d49a8a2  home/markizano/bin/xclip-mysql_escape
+adc81fe2af3c34bc48901f2659a5aa07  home/markizano/bin/xclip-pastie
+097e4b3320d21469525469fabcbf8251  home/markizano/bin/xclip-sed
+5416be28fe9f2af6107619462fe65bbb  home/markizano/bin/xclip-sort
+c723abdc1c056b7b32ea9088373fdf89  home/markizano/bin/xclip-strlen
+05adc5e13101a03fee1a51f79ac1e062  home/markizano/bin/xclip-sync
+873d2da8fdaa152f6d810e1fe1494824  home/markizano/bin/xclip-trackers
+b6b6031274cb894b1aae1c29ac0bfa8f  home/markizano/bin/xclip-urldecode
+f9038eeeff8ee50e97e07b1f1024d992  home/markizano/bin/xclip-urlencode
+274ca132e5eca6db9352ea5897984644  home/markizano/bin/xclip-wc
+9ff7c0ad1df833aaef7c878a2c02a183  home/markizano/bin/xclip-wikify
+57617f60b17d21641a1967c98b03a2fd  home/markizano/bin/xclip-wordwrap
+73f81cd16dbc8f799a0415f2944a210d  home/markizano/bin/xpwd
+02f7095cc747c9f28d5efde83ea0856e  home/markizano/.config/terminator/config
+88e867a313ccade0c6b95673edbff8c8  home/markizano/.config/user-dirs.dirs
 3364f290d4ebd2bbcaa642a982a97df9  home/markizano/.gnome2/gedit/gedit-2
 743ae29efea9207bf9fbc923cbf48317  home/markizano/.gnome2/gedit/plugins/advanced-bookmarks/bookmarks.py
 3b8899c9b2ebb6e8756bd6c6075c12de  home/markizano/.gnome2/gedit/plugins/advanced-bookmarks/config_dlg.glade
@@ -183,8 +277,114 @@ ad3d45b0cdfd88ff79ecd7f0ad234503  home/markizano/.gnome2/gedit/snippets/sass.xml
 24d417613b9b87be4597abd581a49f2e  home/markizano/.gnome2/gedit/snippets/shoulda.xml
 2317752acdc9c41eadb6509ef005d744  home/markizano/.gnome2/gedit/snippets/sh.xml
 ebe8c1214ffef2e63a376b7d2a8b49da  home/markizano/.gnome2/gedit/snippets/sugartest.xml
+6174beba092ddcaf5e1d34e6895877ad  home/markizano/.gnome2/gedit/styles/Active4D.xml
+5720ca72d5b879e0b5d14c33d1d89add  home/markizano/.gnome2/gedit/styles/Airkitek.xml
+a9f0fd57c90fea8eb1cc2983e25251d4  home/markizano/.gnome2/gedit/styles/All Hallow's Eve.xml
+b86f3fc9b853f58f586102681711d199  home/markizano/.gnome2/gedit/styles/Amy.xml
+e794ed0d0134db699023d84ee055bf15  home/markizano/.gnome2/gedit/styles/Argonaut.xml
+98d4ee10732fc7e3fea3b1bd4f788364  home/markizano/.gnome2/gedit/styles/barf.xml
+b511da00847ca71f86a38a731f1b3cd3  home/markizano/.gnome2/gedit/styles/BBEdit.xml
+5eed744f6df0a84d1472a72a72187ab1  home/markizano/.gnome2/gedit/styles/Bespin.xml
+73807f34dd5d1eb79b84c9bc333c4d78  home/markizano/.gnome2/gedit/styles/Blackboard.xml
+60b63c98041212b1e08083bb2c3c1ea8  home/markizano/.gnome2/gedit/styles/Black Pearl III.xml
+3db16b63071ee52a7ea85e3592d0833d  home/markizano/.gnome2/gedit/styles/Black Pearl II.xml
+31e77023e0a27b1d9c04959a385655ad  home/markizano/.gnome2/gedit/styles/Black Pearl.xml
+191470523012b0016629599dd478a4aa  home/markizano/.gnome2/gedit/styles/blue_dream.xml
+47445b90daadce9a717edaba3184852e  home/markizano/.gnome2/gedit/styles/BoysAndGirls01.xml
+6c6f9e59355da45c5f020cec0f0db998  home/markizano/.gnome2/gedit/styles/Brilliance Black.xml
+d76aba2ad9da4d3f001d75c289c2d9a6  home/markizano/.gnome2/gedit/styles/Brilliance Dull.xml
+69d3fa0008fcd28eb03c38087dc24c9a  home/markizano/.gnome2/gedit/styles/chela_light.xml
+766a9b0b759b61dea17b1b3c53d8d9bd  home/markizano/.gnome2/gedit/styles/Choco.xml
+480ed8af3b3abd53ffe3d33251830539  home/markizano/.gnome2/gedit/styles/Classic Modified.xml
+b9f54d1a29a03ab04ab3466ed4572a2b  home/markizano/.gnome2/gedit/styles/CodeZone.xml
+612787d32f7f882582d239d106366081  home/markizano/.gnome2/gedit/styles/Cool Glow.xml
+2da777859a9fb656c9e333ce5737d712  home/markizano/.gnome2/gedit/styles/Daltonism.xml
+61b64bf8e4cbd71d7194a8370a75c81e  home/markizano/.gnome2/gedit/styles/darkmacs.xml
+25cbe3ddc7c2652e8c79905bc1805c40  home/markizano/.gnome2/gedit/styles/darkmate.xml
+6b9fbb16278ee8f1b12413e812d8153a  home/markizano/.gnome2/gedit/styles/Dawn.xml
+945574e8f23e31db388cd38e495f5557  home/markizano/.gnome2/gedit/styles/desert.xml
+f4dcf6fd483280cadc7f71b654359dce  home/markizano/.gnome2/gedit/styles/Django (Smoothy).xml
+845bca6ec5f24f83bec28c138df89c11  home/markizano/.gnome2/gedit/styles/Django.xml
+7a480e9dab183e5815ca35c45a2e9c02  home/markizano/.gnome2/gedit/styles/dreamweaver.xml
+c02a7482d9f6e6692ca49977172e737e  home/markizano/.gnome2/gedit/styles/eclips3.media (ECLM).xml
+bfcd95eaf75d58018c7ad1533ccae2fb  home/markizano/.gnome2/gedit/styles/Eiffel.xml
+2a24219ed019fc23566c8c3f12e17e63  home/markizano/.gnome2/gedit/styles/emacs_dark.xml
+9ed84cfe8115defc54e585535abe3f74  home/markizano/.gnome2/gedit/styles/emacs_mod.xml
+96d5bd9429204cbf4ff51eb13ebbf6d6  home/markizano/.gnome2/gedit/styles/Emacs.xml
+c6488a5d5d4a70aac36caaf8536abfda  home/markizano/.gnome2/gedit/styles/Espresso Libre.xml
+7fb00e29d788f019942376c7109e3cb4  home/markizano/.gnome2/gedit/styles/Fade to Grey.xml
+eaa7fd1dbe2637f6905f75afa7fb3d1b  home/markizano/.gnome2/gedit/styles/Flarp.xml
+b7ecd1cee53d66142fdd4b7c3dda866c  home/markizano/.gnome2/gedit/styles/fluffy.xml
+c7ed22b1c2d1d70f03d4dc06e9fe8efd  home/markizano/.gnome2/gedit/styles/ForLaTeX.xml
+bee7b272ee3bc5a39d027680627a9b4b  home/markizano/.gnome2/gedit/styles/fruity.xml
+abd43d838b4dd7608695e30d6e8a34fa  home/markizano/.gnome2/gedit/styles/GitHub.xml
+7cbaf85cdee58c36d84b7ccb2ccd3c24  home/markizano/.gnome2/gedit/styles/GlitterBomb.xml
+54e3fcf6ad6a58641321badb7c601968  home/markizano/.gnome2/gedit/styles/GmateLight.xml
+3bc4907cb6137e1bd39408744580002a  home/markizano/.gnome2/gedit/styles/Gmate.xml
+73f7b2a8b8a5e72a48910cd876b289ea  home/markizano/.gnome2/gedit/styles/idleFingers.xml
+d3a75cff177a1353ab3751a7ed3bb32a  home/markizano/.gnome2/gedit/styles/IDLE.xml
+7e5e8959255ebb13f723728c0faa7566  home/markizano/.gnome2/gedit/styles/iLife 05.xml
+ed965d9b136f909aa90c36e285c5ddf1  home/markizano/.gnome2/gedit/styles/iPlastic.xml
+2a983392d872e772ff3cabb8b5e20df0  home/markizano/.gnome2/gedit/styles/IR_Black.xml
+58fc23c1f70372d61a3b1bf4f775bb45  home/markizano/.gnome2/gedit/styles/ironman.xml
+d13f59dcefaab25d0ef96c5ceebdf03d  home/markizano/.gnome2/gedit/styles/IR_White.xml
+7385d80d907aacb9a7ce7fb0f85c31b9  home/markizano/.gnome2/gedit/styles/LAZY.xml
+47150abc1cdc6dcb8c4eb6648499ed08  home/markizano/.gnome2/gedit/styles/Lowlight.xml
+276fa8209b1f546b513f8037136c7306  home/markizano/.gnome2/gedit/styles/Mac Classic.xml
+0ac14bd4e2ac0cf2de53fbbb88bc6a84  home/markizano/.gnome2/gedit/styles/MagicWB (Amiga).xml
+51f7a3b7bcd932517964e4a65879e352  home/markizano/.gnome2/gedit/styles/Matrix.xml
+ff4c658adebbcfa877d50416a032b0fd  home/markizano/.gnome2/gedit/styles/Merbivore Soft.xml
+df6e82d3a595e0810f45200f22e1eb3b  home/markizano/.gnome2/gedit/styles/Merbivore.xml
+cb1307380f60d6b619de6d909aea1480  home/markizano/.gnome2/gedit/styles/Midnight.xml
+c9e52e093ee484df81e03bac1e734067  home/markizano/.gnome2/gedit/styles/minimal_Theme.xml
+a6d5530c8ebc56552d58de04ed2b4390  home/markizano/.gnome2/gedit/styles/Mono Industrial.xml
+69278edae6519cfa00b843e6bad8eeb7  home/markizano/.gnome2/gedit/styles/Monokai.xml
+53446b508d3961b72cf9c8827aef0852  home/markizano/.gnome2/gedit/styles/Neopro.xml
+fa5d446128f89fa6ef5b9b958574d254  home/markizano/.gnome2/gedit/styles/Notepad2.xml
+63a1de42cf26ab5322334683dd2b5f76  home/markizano/.gnome2/gedit/styles/Pastels on Dark.xml
+fc52ca585fcbf662581f102b7a72d339  home/markizano/.gnome2/gedit/styles/PhilGeek.xml
+f04fd81b857cf550206b3468e2ddfcbe  home/markizano/.gnome2/gedit/styles/PlasticCodeWrap.xml
+80ed53fc4ccdf391219d863f03a080fa  home/markizano/.gnome2/gedit/styles/Plum Dumb.xml
+8ace703e24b3e1e7e4ab2b62da47a201  home/markizano/.gnome2/gedit/styles/Railscasts black.xml
+133b7d1bdf4426b90581cf5bdc762e46  home/markizano/.gnome2/gedit/styles/Railscasts improved.xml
+628d90de184949409fd73258878f935d  home/markizano/.gnome2/gedit/styles/Railscasts.xml
+0f839710ce56688ac456544fe84ac62b  home/markizano/.gnome2/gedit/styles/RDark.xml
+243639a2eff1f9ee6835579c9f05383d  home/markizano/.gnome2/gedit/styles/Ruby Blue.xml
+bb71f5571593ea11b5737cc5db99cc95  home/markizano/.gnome2/gedit/styles/rubycius-mod.xml
+b697cc6d1510e25a769bbb963a80923f  home/markizano/.gnome2/gedit/styles/Rubycius.xml
+6ed58fa701258930de5ebcf902a93a26  home/markizano/.gnome2/gedit/styles/Ruby Robot.xml
+6ed58fa701258930de5ebcf902a93a26  home/markizano/.gnome2/gedit/styles/RubyRobot.xml
+828e4d3dac30466225d5586cd6733c4e  home/markizano/.gnome2/gedit/styles/ryan-light.xml
+4b7db4908d75de2f11518f4031690a58  home/markizano/.gnome2/gedit/styles/Slate.xml
+5046a952b1b6cbd6a57ba34ddd80e0d0  home/markizano/.gnome2/gedit/styles/slush_and_poppies.xml
+6113fed869186976f7fce480fff9d43a  home/markizano/.gnome2/gedit/styles/Slush & Poppies.xml
+72e843eeb6070b105c708c724b8bb5bf  home/markizano/.gnome2/gedit/styles/Smurfy.xml
+ed2f3bb2869906530689c932adc61d91  home/markizano/.gnome2/gedit/styles/SpaceCadedPro.xml
+08830a9c823b7dd62ecee477c01c43f3  home/markizano/.gnome2/gedit/styles/SpaceCadet.xml
+ddbfb5c403729ddd8c55eb051f71b53c  home/markizano/.gnome2/gedit/styles/Spectacular.xml
+098c214f035a62ba53965770ce561a21  home/markizano/.gnome2/gedit/styles/Stoneship.xml
+fcfd618b9cb0b865727b9a4b22ed2193  home/markizano/.gnome2/gedit/styles/Sunburst.xml
+ed4c5d4721228914b396721d52b4fa8d  home/markizano/.gnome2/gedit/styles/Swyphs II.xml
+efd17c18f1cc81947a51de1922e117d3  home/markizano/.gnome2/gedit/styles/Tango.xml
+a680ee71da5260ca1e67c5e9585d90ae  home/markizano/.gnome2/gedit/styles/Tek.xml
+f134e62634912cdd4299c217487ef5bc  home/markizano/.gnome2/gedit/styles/Text Ex Machina.xml
+fedddd304fa5238cc721a0773c62f0a8  home/markizano/.gnome2/gedit/styles/textmate.xml
+8667dc4a5975dcbb16c447bb73857b86  home/markizano/.gnome2/gedit/styles/Tinge.xml
+e22d2f37f825d6a39aed9454055e6312  home/markizano/.gnome2/gedit/styles/Travis Jeffery.xml
+175e609ff267519a3d86975909c2a089  home/markizano/.gnome2/gedit/styles/twilight_mod.xml
+205bb5cd0061670ffac75ec2205e9b78  home/markizano/.gnome2/gedit/styles/Twilight.xml
+1bbd4c2a0e31aa02db14c309d19015fc  home/markizano/.gnome2/gedit/styles/vibrant_fun.xml
+4f2c1ea0b70798faef981c8f767ef2a1  home/markizano/.gnome2/gedit/styles/Vibrant Ink.xml
+788deafe23768f07d9c5d95f5bd322fa  home/markizano/.gnome2/gedit/styles/vibrant_nerd.xml
+48066f6b423a0f91624258157096f022  home/markizano/.gnome2/gedit/styles/warm_grey.xml
+d151bca9ee6246025c0f061bfeb1efbb  home/markizano/.gnome2/gedit/styles/Whys Poignant.xml
+fbfe0295c7b2004215a97220a9de0e21  home/markizano/.gnome2/gedit/styles/wombat.xml
+4651afb3133ee289384d7ac03a45e144  home/markizano/.gnome2/gedit/styles/Zenburnesque.xml
+dc838997a08eb5ae7df1453e8ccc1dd8  home/markizano/.gnome2/gedit/styles/zenburn.xml
+8ec388c516e6a5b0168edc1cc0f89616  home/markizano/.gnome2/gedit/tools/base64-decode
 614ce1d689ea06a7151b3a6113e0151a  home/markizano/.gnome2/gedit/tools/build
-6308a23e41de37e80bafa828c65f4352  home/markizano/.gnome2/gedit/tools/change-"-to-'
+d7b6f132bc179e0fae8d6133044ff8e1  home/markizano/.gnome2/gedit/tools/change-'-to-"
+63d10e255784334b942d49c674e6d5d2  home/markizano/.gnome2/gedit/tools/change-"-to-'
 bd5ca95b95ca4fae6dfc23aaf3c7a0b0  home/markizano/.gnome2/gedit/tools/double-lines
 da350ecccf9008ba39debb70490529dc  home/markizano/.gnome2/gedit/tools/exec
 3a2bdb477745e7b783f59f43c692be9a  home/markizano/.gnome2/gedit/tools/gmaps
@@ -194,7 +394,7 @@ da350ecccf9008ba39debb70490529dc  home/markizano/.gnome2/gedit/tools/exec
 dd3af358a4e804cadd5d3e67e3f90376  home/markizano/.gnome2/gedit/tools/php
 4b3f18d392866733a581c1dc5710d762  home/markizano/.gnome2/gedit/tools/php-lint
 2ed2c4a8c8a32d13bc4fe0b002f5719f  home/markizano/.gnome2/gedit/tools/savestate
-4fb233bfbee089196385be0b4c6465c0  home/markizano/.gnome2/gedit/tools/wordwrap
+dd2672347229a833fb328cb0c414659a  home/markizano/.gnome2/gedit/tools/wordwrap
 709ffbab18094bc0929786a96dfdd045  home/markizano/.nano/asm.nanorc
 5a6fd0bb064060cea3e431da32d73661  home/markizano/.nano/awk.nanorc
 f302cd65bce787618d54e623046e2df4  home/markizano/.nano/c.alt.nanorc
@@ -229,142 +429,5 @@ c201f4161635a5fdcfa4715f1f4a2cac  home/markizano/.nano/tcl.nanorc
 b031088bfa861069052e80c16610f418  home/markizano/.nano/tex.nanorc
 d6888bb5aa65308b828fd27151583aa2  home/markizano/.nano/vb.nanorc
 6b966a6c01048d8707545a95bfbd8f26  home/markizano/.nano/xml.nanorc
-cd755cdd886b5ab12a65fec3d291dc86  home/markizano/.profile
+a303b78561f7c574ee9f811418aad0ae  home/markizano/.profile
 ef6de1f9f83c9cfc4b9b53f07bf87270  home/markizano/.screenrc
-6174beba092ddcaf5e1d34e6895877ad  usr/share/gtksourceview-2.0/styles/Active4D.xml
-5720ca72d5b879e0b5d14c33d1d89add  usr/share/gtksourceview-2.0/styles/Airkitek.xml
-a9f0fd57c90fea8eb1cc2983e25251d4  usr/share/gtksourceview-2.0/styles/All Hallow's Eve.xml
-b86f3fc9b853f58f586102681711d199  usr/share/gtksourceview-2.0/styles/Amy.xml
-e794ed0d0134db699023d84ee055bf15  usr/share/gtksourceview-2.0/styles/Argonaut.xml
-98d4ee10732fc7e3fea3b1bd4f788364  usr/share/gtksourceview-2.0/styles/barf.xml
-b511da00847ca71f86a38a731f1b3cd3  usr/share/gtksourceview-2.0/styles/BBEdit.xml
-5eed744f6df0a84d1472a72a72187ab1  usr/share/gtksourceview-2.0/styles/Bespin.xml
-73807f34dd5d1eb79b84c9bc333c4d78  usr/share/gtksourceview-2.0/styles/Blackboard.xml
-60b63c98041212b1e08083bb2c3c1ea8  usr/share/gtksourceview-2.0/styles/Black Pearl III.xml
-3db16b63071ee52a7ea85e3592d0833d  usr/share/gtksourceview-2.0/styles/Black Pearl II.xml
-31e77023e0a27b1d9c04959a385655ad  usr/share/gtksourceview-2.0/styles/Black Pearl.xml
-191470523012b0016629599dd478a4aa  usr/share/gtksourceview-2.0/styles/blue_dream.xml
-47445b90daadce9a717edaba3184852e  usr/share/gtksourceview-2.0/styles/BoysAndGirls01.xml
-6c6f9e59355da45c5f020cec0f0db998  usr/share/gtksourceview-2.0/styles/Brilliance Black.xml
-d76aba2ad9da4d3f001d75c289c2d9a6  usr/share/gtksourceview-2.0/styles/Brilliance Dull.xml
-69d3fa0008fcd28eb03c38087dc24c9a  usr/share/gtksourceview-2.0/styles/chela_light.xml
-766a9b0b759b61dea17b1b3c53d8d9bd  usr/share/gtksourceview-2.0/styles/Choco.xml
-480ed8af3b3abd53ffe3d33251830539  usr/share/gtksourceview-2.0/styles/Classic Modified.xml
-b9f54d1a29a03ab04ab3466ed4572a2b  usr/share/gtksourceview-2.0/styles/CodeZone.xml
-612787d32f7f882582d239d106366081  usr/share/gtksourceview-2.0/styles/Cool Glow.xml
-2da777859a9fb656c9e333ce5737d712  usr/share/gtksourceview-2.0/styles/Daltonism.xml
-61b64bf8e4cbd71d7194a8370a75c81e  usr/share/gtksourceview-2.0/styles/darkmacs.xml
-25cbe3ddc7c2652e8c79905bc1805c40  usr/share/gtksourceview-2.0/styles/darkmate.xml
-6b9fbb16278ee8f1b12413e812d8153a  usr/share/gtksourceview-2.0/styles/Dawn.xml
-945574e8f23e31db388cd38e495f5557  usr/share/gtksourceview-2.0/styles/desert.xml
-f4dcf6fd483280cadc7f71b654359dce  usr/share/gtksourceview-2.0/styles/Django (Smoothy).xml
-845bca6ec5f24f83bec28c138df89c11  usr/share/gtksourceview-2.0/styles/Django.xml
-7a480e9dab183e5815ca35c45a2e9c02  usr/share/gtksourceview-2.0/styles/dreamweaver.xml
-c02a7482d9f6e6692ca49977172e737e  usr/share/gtksourceview-2.0/styles/eclips3.media (ECLM).xml
-bfcd95eaf75d58018c7ad1533ccae2fb  usr/share/gtksourceview-2.0/styles/Eiffel.xml
-2a24219ed019fc23566c8c3f12e17e63  usr/share/gtksourceview-2.0/styles/emacs_dark.xml
-9ed84cfe8115defc54e585535abe3f74  usr/share/gtksourceview-2.0/styles/emacs_mod.xml
-96d5bd9429204cbf4ff51eb13ebbf6d6  usr/share/gtksourceview-2.0/styles/Emacs.xml
-c6488a5d5d4a70aac36caaf8536abfda  usr/share/gtksourceview-2.0/styles/Espresso Libre.xml
-7fb00e29d788f019942376c7109e3cb4  usr/share/gtksourceview-2.0/styles/Fade to Grey.xml
-eaa7fd1dbe2637f6905f75afa7fb3d1b  usr/share/gtksourceview-2.0/styles/Flarp.xml
-b7ecd1cee53d66142fdd4b7c3dda866c  usr/share/gtksourceview-2.0/styles/fluffy.xml
-c7ed22b1c2d1d70f03d4dc06e9fe8efd  usr/share/gtksourceview-2.0/styles/ForLaTeX.xml
-bee7b272ee3bc5a39d027680627a9b4b  usr/share/gtksourceview-2.0/styles/fruity.xml
-abd43d838b4dd7608695e30d6e8a34fa  usr/share/gtksourceview-2.0/styles/GitHub.xml
-7cbaf85cdee58c36d84b7ccb2ccd3c24  usr/share/gtksourceview-2.0/styles/GlitterBomb.xml
-54e3fcf6ad6a58641321badb7c601968  usr/share/gtksourceview-2.0/styles/GmateLight.xml
-3bc4907cb6137e1bd39408744580002a  usr/share/gtksourceview-2.0/styles/Gmate.xml
-73f7b2a8b8a5e72a48910cd876b289ea  usr/share/gtksourceview-2.0/styles/idleFingers.xml
-d3a75cff177a1353ab3751a7ed3bb32a  usr/share/gtksourceview-2.0/styles/IDLE.xml
-7e5e8959255ebb13f723728c0faa7566  usr/share/gtksourceview-2.0/styles/iLife 05.xml
-ed965d9b136f909aa90c36e285c5ddf1  usr/share/gtksourceview-2.0/styles/iPlastic.xml
-2a983392d872e772ff3cabb8b5e20df0  usr/share/gtksourceview-2.0/styles/IR_Black.xml
-58fc23c1f70372d61a3b1bf4f775bb45  usr/share/gtksourceview-2.0/styles/ironman.xml
-d13f59dcefaab25d0ef96c5ceebdf03d  usr/share/gtksourceview-2.0/styles/IR_White.xml
-7385d80d907aacb9a7ce7fb0f85c31b9  usr/share/gtksourceview-2.0/styles/LAZY.xml
-47150abc1cdc6dcb8c4eb6648499ed08  usr/share/gtksourceview-2.0/styles/Lowlight.xml
-276fa8209b1f546b513f8037136c7306  usr/share/gtksourceview-2.0/styles/Mac Classic.xml
-0ac14bd4e2ac0cf2de53fbbb88bc6a84  usr/share/gtksourceview-2.0/styles/MagicWB (Amiga).xml
-51f7a3b7bcd932517964e4a65879e352  usr/share/gtksourceview-2.0/styles/Matrix.xml
-ff4c658adebbcfa877d50416a032b0fd  usr/share/gtksourceview-2.0/styles/Merbivore Soft.xml
-df6e82d3a595e0810f45200f22e1eb3b  usr/share/gtksourceview-2.0/styles/Merbivore.xml
-cb1307380f60d6b619de6d909aea1480  usr/share/gtksourceview-2.0/styles/Midnight.xml
-c9e52e093ee484df81e03bac1e734067  usr/share/gtksourceview-2.0/styles/minimal_Theme.xml
-a6d5530c8ebc56552d58de04ed2b4390  usr/share/gtksourceview-2.0/styles/Mono Industrial.xml
-69278edae6519cfa00b843e6bad8eeb7  usr/share/gtksourceview-2.0/styles/Monokai.xml
-53446b508d3961b72cf9c8827aef0852  usr/share/gtksourceview-2.0/styles/Neopro.xml
-fa5d446128f89fa6ef5b9b958574d254  usr/share/gtksourceview-2.0/styles/Notepad2.xml
-63a1de42cf26ab5322334683dd2b5f76  usr/share/gtksourceview-2.0/styles/Pastels on Dark.xml
-fc52ca585fcbf662581f102b7a72d339  usr/share/gtksourceview-2.0/styles/PhilGeek.xml
-f04fd81b857cf550206b3468e2ddfcbe  usr/share/gtksourceview-2.0/styles/PlasticCodeWrap.xml
-80ed53fc4ccdf391219d863f03a080fa  usr/share/gtksourceview-2.0/styles/Plum Dumb.xml
-8ace703e24b3e1e7e4ab2b62da47a201  usr/share/gtksourceview-2.0/styles/Railscasts black.xml
-133b7d1bdf4426b90581cf5bdc762e46  usr/share/gtksourceview-2.0/styles/Railscasts improved.xml
-628d90de184949409fd73258878f935d  usr/share/gtksourceview-2.0/styles/Railscasts.xml
-0f839710ce56688ac456544fe84ac62b  usr/share/gtksourceview-2.0/styles/RDark.xml
-243639a2eff1f9ee6835579c9f05383d  usr/share/gtksourceview-2.0/styles/Ruby Blue.xml
-bb71f5571593ea11b5737cc5db99cc95  usr/share/gtksourceview-2.0/styles/rubycius-mod.xml
-b697cc6d1510e25a769bbb963a80923f  usr/share/gtksourceview-2.0/styles/Rubycius.xml
-6ed58fa701258930de5ebcf902a93a26  usr/share/gtksourceview-2.0/styles/Ruby Robot.xml
-6ed58fa701258930de5ebcf902a93a26  usr/share/gtksourceview-2.0/styles/RubyRobot.xml
-828e4d3dac30466225d5586cd6733c4e  usr/share/gtksourceview-2.0/styles/ryan-light.xml
-4b7db4908d75de2f11518f4031690a58  usr/share/gtksourceview-2.0/styles/Slate.xml
-5046a952b1b6cbd6a57ba34ddd80e0d0  usr/share/gtksourceview-2.0/styles/slush_and_poppies.xml
-6113fed869186976f7fce480fff9d43a  usr/share/gtksourceview-2.0/styles/Slush & Poppies.xml
-72e843eeb6070b105c708c724b8bb5bf  usr/share/gtksourceview-2.0/styles/Smurfy.xml
-ed2f3bb2869906530689c932adc61d91  usr/share/gtksourceview-2.0/styles/SpaceCadedPro.xml
-08830a9c823b7dd62ecee477c01c43f3  usr/share/gtksourceview-2.0/styles/SpaceCadet.xml
-ddbfb5c403729ddd8c55eb051f71b53c  usr/share/gtksourceview-2.0/styles/Spectacular.xml
-098c214f035a62ba53965770ce561a21  usr/share/gtksourceview-2.0/styles/Stoneship.xml
-fcfd618b9cb0b865727b9a4b22ed2193  usr/share/gtksourceview-2.0/styles/Sunburst.xml
-ed4c5d4721228914b396721d52b4fa8d  usr/share/gtksourceview-2.0/styles/Swyphs II.xml
-efd17c18f1cc81947a51de1922e117d3  usr/share/gtksourceview-2.0/styles/Tango.xml
-a680ee71da5260ca1e67c5e9585d90ae  usr/share/gtksourceview-2.0/styles/Tek.xml
-f134e62634912cdd4299c217487ef5bc  usr/share/gtksourceview-2.0/styles/Text Ex Machina.xml
-fedddd304fa5238cc721a0773c62f0a8  usr/share/gtksourceview-2.0/styles/textmate.xml
-8667dc4a5975dcbb16c447bb73857b86  usr/share/gtksourceview-2.0/styles/Tinge.xml
-e22d2f37f825d6a39aed9454055e6312  usr/share/gtksourceview-2.0/styles/Travis Jeffery.xml
-175e609ff267519a3d86975909c2a089  usr/share/gtksourceview-2.0/styles/twilight_mod.xml
-205bb5cd0061670ffac75ec2205e9b78  usr/share/gtksourceview-2.0/styles/Twilight.xml
-1bbd4c2a0e31aa02db14c309d19015fc  usr/share/gtksourceview-2.0/styles/vibrant_fun.xml
-4f2c1ea0b70798faef981c8f767ef2a1  usr/share/gtksourceview-2.0/styles/Vibrant Ink.xml
-788deafe23768f07d9c5d95f5bd322fa  usr/share/gtksourceview-2.0/styles/vibrant_nerd.xml
-48066f6b423a0f91624258157096f022  usr/share/gtksourceview-2.0/styles/warm_grey.xml
-d151bca9ee6246025c0f061bfeb1efbb  usr/share/gtksourceview-2.0/styles/Whys Poignant.xml
-fbfe0295c7b2004215a97220a9de0e21  usr/share/gtksourceview-2.0/styles/wombat.xml
-4651afb3133ee289384d7ac03a45e144  usr/share/gtksourceview-2.0/styles/Zenburnesque.xml
-dc838997a08eb5ae7df1453e8ccc1dd8  usr/share/gtksourceview-2.0/styles/zenburn.xml
-709ffbab18094bc0929786a96dfdd045  usr/share/nano/asm.nanorc
-5a6fd0bb064060cea3e431da32d73661  usr/share/nano/awk.nanorc
-f302cd65bce787618d54e623046e2df4  usr/share/nano/c.alt.nanorc
-7b1cf42664807955ad7fe46c607ba26f  usr/share/nano/cmake.nanorc
-63afab195bcc62395388c56f5f334057  usr/share/nano/c.nanorc
-df6eb17e67e760aaef32e7e3db0d9d47  usr/share/nano/css.nanorc
-a71631edc1e278d73eef25822d2a5e84  usr/share/nano/debian.nanorc
-1b0a2cc44726bb36075c3a9db46c4603  usr/share/nano/fortran.nanorc
-7f4757150c39b36eb0158c464aec67db  usr/share/nano/gentoo.nanorc
-a924829a3699c7344149c60809f61a00  usr/share/nano/groff.nanorc
-134277328dea9d495837d1be59a85e0b  usr/share/nano/html.nanorc
-d8a014213e10c3ed01d8f5fb3265c489  usr/share/nano/ini.nanorc
-00c3228d256112f3656273ba1ac00f1a  usr/share/nano/java.nanorc
-1019f0bae1ebbbf9e836629fabddb027  usr/share/nano/javascript.nanorc
-7b3aabd46ca42c4576d6271df422172d  usr/share/nano/makefile.nanorc
-be0ce67cbfee932fc30b2c8ecb32f685  usr/share/nano/man.nanorc
-8c57444a19ff1fa0946ec6901a9fe695  usr/share/nano/mutt.nanorc
-cedc581af7a7fd08aa4da48bc85722e6  usr/share/nano/nano-menu.xpm
-691b7cb6fe1a6f5bd9907bb20af7f31c  usr/share/nano/nanorc.nanorc
-60953b49b3a65cf95715b459d49c5f0e  usr/share/nano/objc.nanorc
-e091b0a754aea3c5f9a5b6ad53a693cc  usr/share/nano/ocaml.nanorc
-965d372ca860b694b4d5e27f3cd304ca  usr/share/nano/patch.nanorc
-0ce705412c2f25626bd735bd3c6bdfbc  usr/share/nano/perl.nanorc
-23dbfe970cf790be9511532f7defb059  usr/share/nano/php.nanorc
-d99f5bca7f2150592aa212e4db2f86bc  usr/share/nano/pov.nanorc
-ff79cd73931dffbe18d2940e20e91488  usr/share/nano/python.nanorc
-800db5d5742a5ef7e4cefb17d4baffc4  usr/share/nano/ruby.nanorc
-46ab938a72d5a32434c00a74675122a1  usr/share/nano/sh.nanorc
-76111b1a6e9b765c6ea4f14e65b0ccc7  usr/share/nano/sql.nanorc
-c201f4161635a5fdcfa4715f1f4a2cac  usr/share/nano/tcl.nanorc
-b031088bfa861069052e80c16610f418  usr/share/nano/tex.nanorc
-d6888bb5aa65308b828fd27151583aa2  usr/share/nano/vb.nanorc
-6b966a6c01048d8707545a95bfbd8f26  usr/share/nano/xml.nanorc

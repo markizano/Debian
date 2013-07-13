@@ -1,3 +1,0 @@
-#!/bin/bash
-
-xte mousedown\ 1 sleep\ 0.5 mouseup\ 1;

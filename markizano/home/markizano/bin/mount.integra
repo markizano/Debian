@@ -1,4 +1,0 @@
-#!/bin/bash
-
-sshfs mharris@devserver.integraclick.com:/home/mharris /home/dev.integraclick.com -o allow_other,follow_symlinks
-

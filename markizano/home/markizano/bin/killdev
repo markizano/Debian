@@ -1,4 +1,0 @@
-#!/bin/bash
-
-sudo kill -15 `ps -Af|grep ssh|grep dev|sed 's/^[0-9]*\s*//'|grep -oP '^([0-9]*)'`
-

@@ -2,14 +2,11 @@
 
 [ -z "$PS1" ] && return
 
-shopt -s autocd checkjobs dirspell extglob
+shopt -s checkjobs dirspell extglob histappend huponexit checkhash cmdhist
 
-export DATEFORMAT='%F/%R:%S';
-export HISTCONTROL=ignoreboth
-export HISTFILE=$HOME/.history
-export HISTFILESIZE=40960
-export HISTSIZE=4096
-export HISTTIMEFORMAT="$DATEFORMAT"
+if [ ${BASH_VERSION:0:1} -ge 4 ]; then
+    shopt -s autocd historeedit
+fi
 
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
@@ -20,26 +17,6 @@ export PS1='\[\033[31m\]$$\[\033[0m\]|\[\033[33m\]$(date +"$DATEFORMAT")\[\033[0
 
 [ -x /usr/bin/dircolors ] && eval "`dircolors -b`"
 [ -f /etc/bash_completion ] && . /etc/bash_completion
-
-# Appended by Markizano
-
-# Force history to be written to disk after each command.
-export PROMPT_COMMAND="history -a";
-export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:.
-
-[ -d ~/bin ] && PATH=$PATH:~/bin
-[ -d /opt/metasploit/sbin ] && PATH=$PATH:/opt/metasploit/sbin
-[ -d /opt/metasploit/bin ] && PATH=$PATH:/opt/metasploit/bin
-
-if [ -n "$PENTEST" ]; then
-	if [ -d /pentest ]; then
-		for pentest in $(ls -1d /pentest/*); do
-			for crack in $(ls -1d $pentest/*); do
-				PATH=$PATH:$crack;
-			done;
-		done;
-	fi
-fi
 
 export BASHRC=1
 

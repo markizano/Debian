@@ -1,9 +1,0 @@
-#!/bin/bash
-
-[ -z "$MYSQL_HOST" ] && MYSQL_HOST=localhost
-[ -z "$MYSQL_USER" ] && MYSQL_USER=root
-[ -z "$MYSQL_PASS" ] && MYSQL_PASS='A$thr@li0s'
-
-[ -z "$MYSQLDUMP" ] && MYSQLDUMP="$(which mysqldump)";
-
-$MYSQLDUMP -u"$MYSQL_USER" -p"$MYSQL_PASS" -h"$MYSQL_HOST" --compact $@

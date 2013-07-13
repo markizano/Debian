@@ -1,5 +1,5 @@
 #!/bin/bash
 
-for i in `svn st --ignore-externals|grep ^?|sed 's/\?\s*//'`; do
-	svn add "$i";
+svn st --ignore-externals|grep ^?|sed 's/\?\s*//' | while read file do
+	svn add "$file";
 done;

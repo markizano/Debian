@@ -1,3 +1,0 @@
-#!/bin/bash
-
-$Phergie/phergie.php $Phergie../Settings.php

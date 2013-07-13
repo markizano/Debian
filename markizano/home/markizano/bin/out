@@ -1,6 +1,0 @@
-#!/bin/php
-<?php
-
-array_shift($_SERVER['argv']);
-$output = join(chr(32), $_SERVER['argv']);
-echo $output;
