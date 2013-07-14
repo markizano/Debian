@@ -1,4 +1,3 @@
-#!/bin/sh
 #!/bin/bash
 
 set -e
@@ -6,13 +5,17 @@ set -e
 # Get lsb functions
 . /lib/lsb/init-functions
 
-THOME="`grep markizano /etc/passwd | cut -d: -f6`"
-DHOME="${THOME/markizano/.markizano}"
+THOME=${THOME:-"`grep markizano /etc/passwd | cut -d: -f6`"}
+DHOME="${THOME%%/markizano}/.markizano"
+
+echo -e "THOME=$THOME, DHOME=$DHOME";
+
 case "$1" in
     start)
         # First, I want to unlock my home dir so apps can load with the proper equipment.
         # Next, we establish the SSH agent and environment so the rest of the system can enjoy the bounty of SSH.
-        encfs --public "$DHOME" "$DHOME";
+        echo -e "encfs --public '$DHOME' '$THOME'"
+        encfs --public "$DHOME" "$THOME";
         ssh-agent | grep -v echo > "$DHOME/.ssh/agent"
         chown `id -u markizano`.`id -g markizano` "$DHOME/.ssh/agent"
         chmod 0600 "$DHOME/.ssh/agent"
