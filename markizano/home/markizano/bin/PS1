@@ -1,5 +1,0 @@
-#!/bin/bash
-
-ps="PS1='\[\033[31m\]$$\[\033[0m\]|\[\033[33m\]\$(date +%F/%R:%S)\n\[\033[34m\]\u\[\033[01;33m\]@\[\033[00;32m\]\h\[\033[01;30m\]:\[\033[00;35m\]\w\[\033[01;31m\]\$\[\033[00m\]';alias ls='ls --color=auto --time-style=long-iso';alias ll='ls -l --color=auto';alias la='ls -la --color=auto';alias lh='ls -lh';alias cls=clear;PATH=.:\$PATH:~/bin; export GREP_OPTIONS='--color=auto'"
-echo -n "$ps" | xclip -selection c
-echo -n "$ps" | xclip -selection p

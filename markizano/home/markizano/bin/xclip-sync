@@ -1,5 +1,0 @@
-#!/bin/bash
-
-xclip -o -selection c | ssh markizano@cb-kizano.clickbooth.com -tXp 90 'cat | xclip -selection c -display :0.0';
-xclip -o -selection p | ssh markizano@cb-kizano.clickbooth.com -tXp 90 'cat | xclip -selection p -display :0.0';
-xclip -o -selection s | ssh markizano@cb-kizano.clickbooth.com -tXp 90 'cat | xclip -selection s -display :0.0';

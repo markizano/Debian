@@ -1,4 +1,0 @@
-#!/bin/bash
-
-echo -n "$(pwd)" | xclip -selection c
-echo -n "$(pwd)" | xclip -selection p

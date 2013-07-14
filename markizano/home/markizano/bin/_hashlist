@@ -1,8 +1,0 @@
-#!/usr/bin/php
-<?php
-
-echo ($chr = @$_SERVER['argv'][1]), chr(10);
-foreach(hash_algos() as $algo){
-	$hash = hash($algo, chr($chr));
-	print str_pad("$algo:", 16, chr(32)).str_pad(strLen($hash), 4, chr(32)).":".$hash.chr(10);
-}

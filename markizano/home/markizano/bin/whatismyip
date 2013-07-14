@@ -1,3 +1,0 @@
-#!/bin/bash
-
-curl --user-agent '#!/bin/bash whatismyip' http://markizano.net/ip.php

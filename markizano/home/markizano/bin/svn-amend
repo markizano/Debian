@@ -1,6 +1,0 @@
-#!/bin/bash
-
-# http://subversion.apache.org/faq.html#change-log-msg
-# svn propset svn:log -r[N] "Message" [URL]
-
-svn propset --revprop svn:log "$@"

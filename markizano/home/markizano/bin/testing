@@ -1,7 +1,0 @@
-#!/bin/php
-<?php
-
-$input = file_get_contents('php://stdin');
-
-
-

@@ -1,7 +1,0 @@
-#!/bin/php
-<?php
-
-unset($_SERVER['argv'][0]);
-isset($_SERVER['argv'][1]) || $_SERVER['argv'][1] = file_get_contents('php://stdin');
-echo trim(join(chr(32), $_SERVER['argv']));
-

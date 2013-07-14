@@ -1,8 +1,0 @@
-#!/bin/php
-<?php
-
-$xclip = array('clip'=>trim(`xclip -o -selection clipboard`), 'primary'=>trim(`xclip -o -selection primary`), 'secondary'=>trim(`xclip -o -selection secondary`));
-$strlen = array('clip'=>strlen($xclip['clip']), 'primary'=>strlen($xclip['primary']), 'secondary'=>strlen($xclip['secondary']));
-
-var_dump($strlen);
-

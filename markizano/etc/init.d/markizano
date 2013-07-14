@@ -6,21 +6,28 @@ set -e
 # Get lsb functions
 . /lib/lsb/init-functions
 
+THOME="`grep markizano /etc/passwd | cut -d: -f6`"
+DHOME="${THOME/markizano/.markizano}"
 case "$1" in
     start)
         # First, I want to unlock my home dir so apps can load with the proper equipment.
         # Next, we establish the SSH agent and environment so the rest of the system can enjoy the bounty of SSH.
-        encfs --public /home/.markizano /home/markizano;
-        ssh-agent | grep -v echo > /home/markizano/.ssh/agent
+        encfs --public "$DHOME" "$DHOME";
+        ssh-agent | grep -v echo > "$DHOME/.ssh/agent"
+        chown `id -u markizano`.`id -g markizano` "$DHOME/.ssh/agent"
+        chmod 0600 "$DHOME/.ssh/agent"
+        true
         ;;
     stop)
         # stop...
-        source /home/markizano/.ssh/agent
-        kill -15 $SSH_AGENT_PID && rm /homem/markizano/.ssh/agent
-        umount /home/markizano
+        source "$DHOME/.ssh/agent"
+        kill -15 $SSH_AGENT_PID && rm "$DHOME/.ssh/agent"
+        umount "$DHOME"
+        true
         ;;
     status)
-        source /home/markizano/.ssh/agent
-        echo -e "Agent: pid=$SSH_AGENT_PID, socket=$SSH_AUTH_SOCK";
+        source "$DHOME/.ssh/agent"
+        echo -e "SSH Agent: PID=$SSH_AGENT_PID, Socket=$SSH_AUTH_SOCK, HOME=$DHOME";
+        true
 esac;
 

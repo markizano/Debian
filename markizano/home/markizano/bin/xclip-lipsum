@@ -1,8 +1,0 @@
-#!/bin/bash
-
-if [ -z "$1" ] || [ -z "$2" ]; then
-	echo "Usage $(basename $0) [type] [count] - where [type] is one of bytes|words|paras and [count] is the number of [type] you want";
-	exit 8;
-fi
-
-pypsum -w$1 -n$2 | xclip -selection c

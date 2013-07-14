@@ -1,3 +1,0 @@
-#!/bin/bash
-
-svn stat|grep ?|sed 's/\?\s*//'

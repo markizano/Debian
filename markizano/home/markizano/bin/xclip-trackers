@@ -1,3 +1,0 @@
-#!/bin/bash
-
-cat /ktmp/trackers.txt | sed -r 's/(.*)/\1\n/g' | xclip -selection c

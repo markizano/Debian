@@ -1,5 +1,0 @@
-#!/bin/bash
-
-for i in clipboard primary secondary; do
-	xclip -o -selection $i | sort | xclip -selection $i
-done;

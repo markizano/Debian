@@ -1,6 +1,0 @@
-#!/bin/bash
-
-path=$1
-[ -z "$path" ] && path=$PWD
-
-find "$path" -type f -name '*.php' -exec php -l {} \; | grep -v '^No syntax';

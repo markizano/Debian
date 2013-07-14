@@ -1,5 +1,0 @@
-#!/bin/bash
-
-for i in c p s; do
-	xclip -o -selection $i | sed -r "$@" | xclip -selection $i;
-done;

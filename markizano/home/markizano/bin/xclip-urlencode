@@ -1,4 +1,0 @@
-#!/bin/php
-<?php
-
-echo urlencode(`xclip -o -selection clip`), chr(10);

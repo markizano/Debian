@@ -1,7 +1,0 @@
-#!/bin/bash
-
-function now () { date +%s; }
-
-if [ "$(now)" -ge "$(date -d'17:00:00' +%s)" ] && [ "$(now)" -le "$(date -d'22:00:00' +%s)" ]; then
-	echo "Need to store backups tonight." | wall
-fi

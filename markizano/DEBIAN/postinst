@@ -2,8 +2,8 @@
 
 set -e
 
-PKG=bitdefender
-PREFIX="/usr/local"
+PKG=markizano
+PREFIX="$HOME"
 BINDIR="${PREFIX}/bin"
 SBINDIR="${PREFIX}/sbin"
 DATADIR="${PREFIX}/share"
@@ -27,10 +27,5 @@ for file in /etc/sudoers /etc/hosts; do
 	fi
 done
 
-# Check to make sure we've not done this before.
-for file in /bin/cat /bin/less /bin/more /bin/bash /bin/true /bin/false /bin/touch /bin/uname /bin/tar /bin/mount /bin/umount /bin/uncompress /bin/which /bin/gunzip /bin/gzip /bin/chmod /bin/chown /bin/cp /bin/dd /bin/chgrp /bin/bzip2 /bin/date /bin/*grep* /usr/bin/stat; do
-  chattr +i $file;
-done
-
-
 exit 0
+

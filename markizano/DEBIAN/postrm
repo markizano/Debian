@@ -1,9 +1,10 @@
 #!/bin/bash
 set -e
 
-pkg=bitdefender
+pkg=markizano
 variant=
 
 echo -e "\033[31mPRERM\033[00m";
 
 exit 0
+

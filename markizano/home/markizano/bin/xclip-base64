@@ -1,6 +1,0 @@
-#!/bin/bash
-
-for i in c p s; do
-	xclip -o -selection $i | base64 $1 -w0 | xclip -selection $i;
-done;
-

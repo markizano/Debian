@@ -1,5 +1,0 @@
-#!/bin/bash
-
-# apt-get install xautomation
-
-xte 'mouseup 1';
